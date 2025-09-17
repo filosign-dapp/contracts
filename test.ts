@@ -13,13 +13,13 @@ async function main() {
     rpcURL: RPC,
   });
 
-  const warmStorageAddress = synapse.getWarmStorageAddress();
-  await synapse.payments.approveService(
-    warmStorageAddress,
-    ethers.parseUnits("10", 18), // Rate allowance: 10 USDFC per epoch
-    ethers.parseUnits("1000", 18), // Lockup allowance: 1000 USDFC total
-    86400n // Max lockup period: 30 days (in epochs)
-  );
+  //   const warmStorageAddress = synapse.getWarmStorageAddress();
+  //   await synapse.payments.approveService(
+  //     warmStorageAddress,
+  //     ethers.parseUnits("10", 18), // Rate allowance: 10 USDFC per epoch
+  //     ethers.parseUnits("1000", 18), // Lockup allowance: 1000 USDFC total
+  //     86400n // Max lockup period: 30 days (in epochs)
+  //   );
 
   const uploadResult = await synapse.storage.upload(
     new TextEncoder().encode(

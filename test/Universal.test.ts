@@ -4,64 +4,119 @@ import {
 } from "@nomicfoundation/hardhat-toolbox-viem/network-helpers";
 import { expect } from "chai";
 import hre from "hardhat";
-import { getAddress, parseGwei } from "viem";
+import { getAddress, parseGwei, publicActions } from "viem";
 import {
   generateRegisterChallenge,
   deriveEncryptionMaterial,
+  generateSalts,
+  regenerateEncryptionKey,
   toHex,
+  generateNonce,
+  toB64,
 } from "filosign-crypto-utils";
 import { describe, it } from "bun:test";
 
 async function setupFixture() {
   const [deployer, user] = await hre.viem.getWalletClients();
+  const admin = (await hre.viem.getTestClient()).extend(publicActions);
 
   const keyRegistry = await hre.viem.deployContract("FSKeyRegistry");
   const version = await keyRegistry.read.version();
 
-  return { deployer, user, keyRegistry, version };
+  return { deployer, user, keyRegistry, version, admin };
 }
 
 describe("FSKeyRegistry", () => {
   it("stores relevant information for the user to be able to regenerate encryption keys", async () => {
-    for (let i = 0; i < 10; i++) {
-      const { keyRegistry, user, version } = await loadFixture(setupFixture);
-      const pin = "1234";
-      const info = "Spandan";
+    const { keyRegistry, user, version, admin } = await loadFixture(
+      setupFixture
+    );
+    const pin = "1234";
+    const info = "Spandan";
 
-      const base_material = generateRegisterChallenge(
-        user.account.address,
-        version.toString()
-      );
+    const base_material = generateSalts();
+    const nonce = generateNonce();
 
-      const signature = await user.signMessage({
-        message: base_material.challenge,
-      });
+    const register_challenge = generateRegisterChallenge(
+      user.account.address,
+      version.toString(),
+      nonce
+    );
 
-      const enc_material = deriveEncryptionMaterial(
-        signature,
-        pin,
-        base_material.pinSalt,
-        base_material.authSalt,
-        base_material.wrapperSalt,
-        info
-      );
+    const signature = await user.signMessage({
+      message: register_challenge.challenge,
+    });
 
-      console.log({
-        nonce: toHex(base_material.nonce).length,
-        salt_auth: toHex(base_material.authSalt).length,
-        salt_pin: toHex(base_material.pinSalt).length,
-        salt_wrap: toHex(base_material.wrapperSalt).length,
-        seed: enc_material.encSeed.length,
-      });
-    }
-    // keyRegistry.write.registerKeygenData([
-    //   {
-    //     nonce: base_material.nonce,
-    //     salt_auth: base_material.auth_salt,
-    //     salt_pin: base_material.pin_salt,
-    //     salt_wrap: base_material.wrapper_salt,
-    //     seed: enc_material.enc_seed,
-    //   },
-    // ]);
+    const enc_material = deriveEncryptionMaterial(
+      signature,
+      pin,
+      base_material.pinSalt,
+      base_material.authSalt,
+      base_material.wrapperSalt,
+      info
+    );
+
+    const generated = regenerateEncryptionKey(
+      signature,
+      pin,
+      base_material.pinSalt,
+      base_material.authSalt,
+      base_material.wrapperSalt,
+      enc_material.encSeed,
+      "test"
+    );
+
+    const txHash = await keyRegistry.write.registerKeygenData(
+      [
+        {
+          nonce: `0x${toHex(nonce)}`,
+          salt_pin: `0x${toHex(base_material.pinSalt)}`,
+          salt_auth: `0x${toHex(base_material.authSalt)}`,
+          salt_wrap: `0x${toHex(base_material.wrapperSalt)}`,
+          seed: `0x${toHex(enc_material.encSeed)}`,
+        },
+      ],
+      { account: user.account }
+    );
+
+    await admin.waitForTransactionReceipt({ hash: txHash });
+
+    const [
+      stored_salt_auth,
+      stored_salt_wrap,
+      stored_salt_pin,
+      stored_nonce,
+      stored_seed,
+    ] = await keyRegistry.read.keygenData([user.account.address]);
+
+    const stored = {
+      salt_auth: toB64(stored_salt_auth),
+      salt_wrap: toB64(stored_salt_wrap),
+      salt_pin: toB64(stored_salt_pin),
+      nonce: toB64(stored_nonce),
+      seed: toB64(stored_seed),
+    };
+
+    const regenerated_challenge = generateRegisterChallenge(
+      user.account.address,
+      version.toString(),
+      stored.nonce
+    );
+
+    const regenerated_signature = await user.signMessage({
+      message: regenerated_challenge.challenge,
+    });
+
+    const regenerated = regenerateEncryptionKey(
+      regenerated_signature,
+      pin,
+      stored.salt_pin,
+      stored.salt_auth,
+      stored.salt_wrap,
+      stored.seed,
+      "test"
+    );
+
+    expect(regenerated.encryptionKey).to.equal(generated.encryptionKey);
   });
 });
