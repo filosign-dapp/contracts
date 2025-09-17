@@ -23,11 +23,11 @@
     "solidity-coverage": "^0.8.16",
     "ts-node": "^10.9.2",
     "typescript": "~5.0.4",
-    "viem": "^2.37.5"
-  },
-  "dependencies": {
     "@filoz/synapse-sdk": "^0.25.1",
     "ethers": "^6.15.0",
-    "filosign-crypto-utils": "^0.2.4"
+    "filosign-crypto-utils": "^0.2.10"
+  },
+  "dependencies": {
+    "viem": "^2.37.5"
   }
 }
