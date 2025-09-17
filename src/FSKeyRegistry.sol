@@ -10,22 +10,27 @@ contract FSKeyRegistry {
         bytes32 salt_pin;
         bytes32 nonce;
         bytes seed;
-        // uint48 kdf;
     }
 
     uint8 public version = 1;
 
     mapping(address => KeygenData) public keygenData;
 
-    constructor() {}
+    constructor() {}    
+
+    function isRegistered(address user) external view returns (bool) {
+        return keygenData[user].nonce != bytes32(0);
+    }
 
     function registerKeygenData(KeygenData memory data_) external {
         require(data_.nonce != bytes32(0), "Invalid nonce");
         require(
-            keygenData[msg.sender].nonce == bytes32(0),
+            isRegistered(msg.sender) == false,
             "Data already registered"
         );
 
         keygenData[msg.sender] = data_;
     }
+    
+    function bumpVersion()
 }
