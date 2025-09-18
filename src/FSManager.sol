@@ -13,6 +13,8 @@ contract FSManager {
 
     uint8 public version = 1;
 
+    mapping(address => mapping(address => bool)) public approvedSenders; // recipeint => sender => aproved
+
     modifier onlyServer() {
         require(msg.sender == server, "Only server can call");
         _;
@@ -26,5 +28,9 @@ contract FSManager {
 
     function setActiveVersion(uint8 version_) external onlyServer {
         version = version_;
+    }
+
+    function approveSender(address sender_) external {
+        approvedSenders[msg.sender][sender_] = true;
     }
 }
