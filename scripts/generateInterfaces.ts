@@ -87,6 +87,35 @@ function needsDataLocation(typeName: string): boolean {
   );
 }
 
+function extractMappingParams(
+  typeName: any,
+  paramNames: string[] = []
+): { params: string[]; returnType: string } {
+  if (typeName.type === "Mapping") {
+    const keyType = typeNameToString(typeName.keyType);
+    const paramName = paramNames.length > 0 ? paramNames[0] : "key";
+    const keyParam = needsDataLocation(keyType)
+      ? `${keyType} calldata ${paramName}`
+      : `${keyType} ${paramName}`;
+
+    const nextParamNames =
+      paramNames.length > 1
+        ? paramNames.slice(1)
+        : [`key${paramNames.length + 1}`];
+    const nested = extractMappingParams(typeName.valueType, nextParamNames);
+
+    return {
+      params: [keyParam, ...nested.params],
+      returnType: nested.returnType,
+    };
+  } else {
+    return {
+      params: [],
+      returnType: typeNameToString(typeName),
+    };
+  }
+}
+
 function paramListToString(paramList: any): string {
   if (!paramList || !Array.isArray(paramList)) return "";
   return paramList
@@ -250,12 +279,9 @@ function generateInterfaceForContract(
               params = `uint256 index`;
               returnType = typeNameToString(sub.typeName.baseTypeName);
             } else if (sub.typeName.type === "Mapping") {
-              const keyType = typeNameToString(sub.typeName.keyType);
-              const keyParam = needsDataLocation(keyType)
-                ? `${keyType} calldata key`
-                : `${keyType} key`;
-              params = keyParam;
-              returnType = typeNameToString(sub.typeName.valueType);
+              const mappingInfo = extractMappingParams(sub.typeName);
+              params = mappingInfo.params.join(", ");
+              returnType = mappingInfo.returnType;
             }
 
             if (
@@ -288,12 +314,9 @@ function generateInterfaceForContract(
                   params = `uint256 index`;
                   returnType = typeNameToString(variable.typeName.baseTypeName);
                 } else if (variable.typeName.type === "Mapping") {
-                  const keyType = typeNameToString(variable.typeName.keyType);
-                  const keyParam = needsDataLocation(keyType)
-                    ? `${keyType} calldata key`
-                    : `${keyType} key`;
-                  params = keyParam;
-                  returnType = typeNameToString(variable.typeName.valueType);
+                  const mappingInfo = extractMappingParams(variable.typeName);
+                  params = mappingInfo.params.join(", ");
+                  returnType = mappingInfo.returnType;
                 }
 
                 if (
