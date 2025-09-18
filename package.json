@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "localnode": "hardhat node",
-    "compile": "hardhat compile",
+    "compile": "bun gen:interfaces; hardhat compile",
     "pretest": "hardhat compile",
     "gen:interfaces": "bun run scripts/generateInterfaces.ts"
   },

@@ -5,7 +5,7 @@ import parser from "solidity-parser-antlr";
 
 const SRC_DIR = path.resolve(process.cwd(), "./src");
 const OUT_DIR = path.join(SRC_DIR, "interfaces");
-const SPDX_HEADER = "// SPDX-License-Identifier: MIT"; // change if you want
+const SPDX_HEADER = "// SPDX-License-Identifier: MIT"; // change latr
 
 type FuncLike = {
   name?: string;
@@ -63,6 +63,18 @@ function typeNameToString(node: any): string {
     default:
       return node.name || "UnknownType";
   }
+}
+
+function needsDataLocation(typeName: string): boolean {
+  return (
+    typeName === "string" ||
+    typeName === "bytes" ||
+    typeName.endsWith("[]") ||
+    (typeName.startsWith("bytes") && typeName.length > 5) ||
+    (typeName[0] === typeName[0].toUpperCase() &&
+      !typeName.startsWith("I") &&
+      typeName !== "address")
+  );
 }
 
 function paramListToString(paramList: any): string {
@@ -222,14 +234,32 @@ function generateInterfaceForContract(
             const varName = sub.name;
 
             let params = "";
+            let returnType = varType;
+
             if (sub.typeName.type === "ArrayTypeName") {
               params = `uint256 index`;
+              returnType = typeNameToString(sub.typeName.baseTypeName);
             } else if (sub.typeName.type === "Mapping") {
               const keyType = typeNameToString(sub.typeName.keyType);
-              params = `${keyType} key`;
+              const keyParam = needsDataLocation(keyType)
+                ? `${keyType} calldata key`
+                : `${keyType} key`;
+              params = keyParam;
+              returnType = typeNameToString(sub.typeName.valueType);
             }
 
-            const getterSig = `function ${varName}(${params}) external view returns (${varType});`;
+            if (
+              returnType.startsWith("I") &&
+              returnType !== "int" &&
+              returnType !== "int256"
+            ) {
+              returnType = "address";
+            }
+
+            const returnLocation = needsDataLocation(returnType)
+              ? ` memory`
+              : "";
+            const getterSig = `function ${varName}(${params}) external view returns (${returnType}${returnLocation});`;
             lines.push(`    ${getterSig}`);
           }
           break;
@@ -242,14 +272,32 @@ function generateInterfaceForContract(
                 const varName = variable.name;
 
                 let params = "";
+                let returnType = varType;
+
                 if (variable.typeName.type === "ArrayTypeName") {
                   params = `uint256 index`;
+                  returnType = typeNameToString(variable.typeName.baseTypeName);
                 } else if (variable.typeName.type === "Mapping") {
                   const keyType = typeNameToString(variable.typeName.keyType);
-                  params = `${keyType} key`;
+                  const keyParam = needsDataLocation(keyType)
+                    ? `${keyType} calldata key`
+                    : `${keyType} key`;
+                  params = keyParam;
+                  returnType = typeNameToString(variable.typeName.valueType);
                 }
 
-                const getterSig = `function ${varName}(${params}) external view returns (${varType});`;
+                if (
+                  returnType.startsWith("I") &&
+                  returnType !== "int" &&
+                  returnType !== "int256"
+                ) {
+                  returnType = "address";
+                }
+
+                const returnLocation = needsDataLocation(returnType)
+                  ? ` memory`
+                  : "";
+                const getterSig = `function ${varName}(${params}) external view returns (${returnType}${returnLocation});`;
                 lines.push(`    ${getterSig}`);
               }
             }
