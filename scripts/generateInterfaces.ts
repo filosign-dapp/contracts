@@ -15,8 +15,18 @@ type FuncLike = {
   visibility?: string;
 };
 
-function ensureOutDir() {
-  if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
+function prepareOutDir() {
+  if (fs.existsSync(OUT_DIR)) {
+    const files = fs.readdirSync(OUT_DIR);
+    for (const file of files) {
+      const filePath = path.join(OUT_DIR, file);
+      if (fs.statSync(filePath).isFile()) {
+        fs.unlinkSync(filePath);
+      }
+    }
+  } else {
+    fs.mkdirSync(OUT_DIR, { recursive: true });
+  }
 }
 
 function extractPragmaAndVersion(fileText: string) {
@@ -338,7 +348,7 @@ function processFile(filePath: string) {
 }
 
 function main() {
-  ensureOutDir();
+  prepareOutDir();
   const pattern = path.join(SRC_DIR, "**/*.sol");
   const files = glob.sync(pattern, {
     nodir: true,
