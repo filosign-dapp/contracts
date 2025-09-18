@@ -22,8 +22,8 @@ contract FSKeyRegistry {
         manager = IFSManager(msg.sender);
     }
 
-    function isRegistered(address user) public view returns (bool) {
-        return keygenData[user].nonce != bytes32(0);
+    function isRegistered(address user_) public view returns (bool) {
+        return keygenData[user_].nonce != bytes32(0);
     }
 
     function registerKeygenData(KeygenData memory data_) external {
