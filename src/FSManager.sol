@@ -1,7 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 pragma solidity ^0.8.26;
 
-contract FSKeyRegistry {
+import "./FSCidRegistry.sol";
+import "./FSFileRegistry.sol";
+import "./FSKeyRegistry.sol";
+
+contract FSManager {
     address public CidRegistry;
     address public FileRegistry;
     address public KeyRegistry;
@@ -17,6 +21,9 @@ contract FSKeyRegistry {
 
     constructor() {
         server = msg.sender;
+        CidRegistry = address(new FSCidRegistry());
+        FileRegistry = address(new FSFileRegistry());
+        KeyRegistry = address(new FSKeyRegistry());
     }
 
     function setActiveVersion(uint8 version_) external onlyServer {

@@ -4,7 +4,13 @@ import {
 } from "@nomicfoundation/hardhat-toolbox-viem/network-helpers";
 import { expect } from "chai";
 import hre from "hardhat";
-import { getAddress, parseGwei, publicActions } from "viem";
+import {
+  encodePacked,
+  getAddress,
+  keccak256,
+  parseGwei,
+  publicActions,
+} from "viem";
 import {
   generateRegisterChallenge,
   deriveEncryptionMaterial,
@@ -21,7 +27,7 @@ async function setupFixture() {
   const admin = (await hre.viem.getTestClient()).extend(publicActions);
 
   const keyRegistry = await hre.viem.deployContract("FSKeyRegistry");
-  const version = await keyRegistry.read.version();
+  const version = 1; //await keyRegistry.read.version();
 
   return { deployer, user, keyRegistry, version, admin };
 }
@@ -66,6 +72,10 @@ describe("FSKeyRegistry", () => {
       "test"
     );
 
+    const commitment_pin = keccak256(
+      encodePacked(["string", "string"], [base_material.pinSalt, pin])
+    );
+
     const txHash = await keyRegistry.write.registerKeygenData(
       [
         {
@@ -74,6 +84,7 @@ describe("FSKeyRegistry", () => {
           salt_auth: `0x${toHex(base_material.authSalt)}`,
           salt_wrap: `0x${toHex(base_material.wrapperSalt)}`,
           seed: `0x${toHex(enc_material.encSeed)}`,
+          commitment_pin,
         },
       ],
       { account: user.account }

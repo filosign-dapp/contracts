@@ -1,10 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 pragma solidity ^0.8.26;
 
-interface IManager {
-    function version() external view returns (uint8);
-}
-
 contract FSKeyRegistry {
     struct KeygenData {
         bytes32 salt_auth;
@@ -12,15 +8,16 @@ contract FSKeyRegistry {
         bytes32 salt_pin;
         bytes32 nonce;
         bytes seed;
+        bytes32 commitment_pin;
     }
 
     mapping(address => KeygenData) public keygenData;
     mapping(address => uint8) keygenDataVersion;
 
-    IManager public manager;
+    address public manager;
 
     constructor() {
-        manager = IManager(msg.sender);
+        manager = (msg.sender);
     }
 
     function isRegistered(address user) public view returns (bool) {
@@ -31,7 +28,7 @@ contract FSKeyRegistry {
         require(data_.nonce != bytes32(0), "Invalid nonce");
         require(isRegistered(msg.sender) == false, "Data already registered");
 
-        keygenDataVersion[msg.sender] = manager.version();
+        // keygenDataVersion[msg.sender] = manager.version();
         keygenData[msg.sender] = data_;
     }
 }

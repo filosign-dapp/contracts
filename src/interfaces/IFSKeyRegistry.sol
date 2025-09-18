@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+// Auto-generated from src/FSKeyRegistry.sol — DO NOT EDIT (regenerate with the script only)
+
+interface IFSKeyRegistry {
+    struct KeygenData {
+        bytes32 salt_auth;
+        bytes32 salt_wrap;
+        bytes32 salt_pin;
+        bytes32 nonce;
+        bytes seed;
+    }
+
+    function isRegistered(address user) external view returns (bool);
+    function registerKeygenData(KeygenData memory data_) external;
+}
