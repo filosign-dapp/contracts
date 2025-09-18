@@ -62,6 +62,50 @@ contract FSFileRegistry {
         file.acked = false;
     }
 
+    function submitSignature(
+        bytes32 cidIdentifier_,
+        bytes32 signatureVisualHash_,
+        uint8 v_,
+        bytes32 r_,
+        bytes32 s_
+    ) external {
+        FileData storage file = _files[cidIdentifier_];
+        SignatureData storage signature = _signatures[cidIdentifier_];
+        require(file.pieceCidPrefix != bytes32(0), "File not registered");
+        require(
+            file.recipient == msg.sender,
+            "Only recipient can submit signature"
+        );
+        require(signature.signer == address(0), "Signature already submitted");
+        require(
+            file.acked == true,
+            "file needs to be acknowledged before submitting signature"
+        );
+        require(
+            verifySignature(
+                msg.sender,
+                keccak256(
+                    abi.encodePacked(
+                        file.pieceCidPrefix,
+                        file.pieceCidTail,
+                        signatureVisualHash_
+                    )
+                ),
+                v_,
+                r_,
+                s_
+            ),
+            "Invalid signature"
+        );
+
+        signature.signer = msg.sender;
+        signature.timestamp = uint48(block.timestamp);
+        signature.signatureVisualHash = signatureVisualHash_;
+        signature.v = v_;
+        signature.r = r_;
+        signature.s = s_;
+    }
+
     function cidIdentifier(
         bytes32 pieceCidPrefix_,
         uint16 pieceCidTail_
