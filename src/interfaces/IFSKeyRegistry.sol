@@ -13,6 +13,8 @@ interface IFSKeyRegistry {
         bytes32 commitment_pin;
     }
 
+    function keygenData(address key) external view returns (mapping(address => KeygenData));
+    function manager() external view returns (IFSManager);
     function isRegistered(address user) external view returns (bool);
     function registerKeygenData(KeygenData memory data_) external;
 }
