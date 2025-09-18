@@ -2,6 +2,7 @@
 pragma solidity ^0.8.26;
 
 import "./interfaces/IFSManager.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 contract FSFileRegistry {
     struct FileData {
@@ -27,7 +28,7 @@ contract FSFileRegistry {
     IFSManager public manager;
 
     constructor() {
-        manager = msg.sender;
+        manager = IFSManager(msg.sender);
     }
 
     function acknowledge(bytes32 cidIdentifier_) external {
@@ -43,7 +44,23 @@ contract FSFileRegistry {
         bytes32 pieceCidPrefix_,
         uint16 pieceCidTail_,
         address recipient_
-    ) external {}
+    ) external {
+        FileData storage file = _files[
+            cidIdentifier(pieceCidPrefix_, pieceCidTail_)
+        ];
+
+        require(file.pieceCidPrefix == bytes32(0), "File already registered");
+        require(
+            manager.approvedSenders(recipient_, msg.sender),
+            "Sender not approved by recipient"
+        );
+
+        file.pieceCidPrefix = pieceCidPrefix_;
+        file.pieceCidTail = pieceCidTail_;
+        file.sender = msg.sender;
+        file.recipient = recipient_;
+        file.acked = false;
+    }
 
     function cidIdentifier(
         bytes32 pieceCidPrefix_,
@@ -62,5 +79,16 @@ contract FSFileRegistry {
         bytes32 cidIdentifier_
     ) external view returns (SignatureData memory) {
         return _signatures[cidIdentifier_];
+    }
+
+    function verifySignature(
+        address signer_,
+        bytes32 messageHash_,
+        uint8 v_,
+        bytes32 r_,
+        bytes32 s_
+    ) internal pure returns (bool) {
+        address recovered = ECDSA.recover(messageHash_, v_, r_, s_);
+        return recovered == signer_;
     }
 }
