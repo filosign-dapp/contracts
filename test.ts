@@ -4,9 +4,10 @@ import { ethers } from "ethers";
 import { testSetup } from "./testSetup";
 
 const RPC = RPC_URLS.calibration.websocket;
+// const RPC = "http://localhost:8545";
 
 async function main() {
-  await testSetup();
+  // await testSetup();
 
   const synapse = await Synapse.create({
     privateKey: Bun.env.FC_PVT_KEY,
@@ -31,11 +32,12 @@ async function main() {
     )
   );
   const data = await synapse.storage.download(uploadResult.pieceCid);
+  console.log("Upload Result:", JSON.stringify(uploadResult, null, 2));
   console.log("Retrieved:", new TextDecoder().decode(data));
 
   const provider = synapse.getProvider();
   if (provider && typeof provider.destroy === "function") {
-    await provider.destroy();
+    provider.destroy();
   }
 }
 

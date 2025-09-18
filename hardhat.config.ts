@@ -6,6 +6,11 @@ const config: HardhatUserConfig = {
   paths: {
     sources: "./src",
   },
+  networks: {
+    hardhat: {
+      allowUnlimitedContractSize: true,
+    },
+  },
   // networks: {
   //   hardhat: {
   //     chainId: 314159,

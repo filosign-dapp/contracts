@@ -1,7 +1,9 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: AGPL-3.0-or-later
 pragma solidity ^0.8.26;
 
-// import "hardhat/console.sol";
+interface IManager {
+    function version() external view returns (uint8);
+}
 
 contract FSKeyRegistry {
     struct KeygenData {
@@ -12,25 +14,24 @@ contract FSKeyRegistry {
         bytes seed;
     }
 
-    uint8 public version = 1;
-
     mapping(address => KeygenData) public keygenData;
+    mapping(address => uint8) keygenDataVersion;
 
-    constructor() {}    
+    IManager public manager;
 
-    function isRegistered(address user) external view returns (bool) {
+    constructor() {
+        manager = IManager(msg.sender);
+    }
+
+    function isRegistered(address user) public view returns (bool) {
         return keygenData[user].nonce != bytes32(0);
     }
 
     function registerKeygenData(KeygenData memory data_) external {
         require(data_.nonce != bytes32(0), "Invalid nonce");
-        require(
-            isRegistered(msg.sender) == false,
-            "Data already registered"
-        );
+        require(isRegistered(msg.sender) == false, "Data already registered");
 
+        keygenDataVersion[msg.sender] = manager.version();
         keygenData[msg.sender] = data_;
     }
-    
-    function bumpVersion()
 }
