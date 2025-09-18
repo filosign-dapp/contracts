@@ -10,6 +10,7 @@ interface IFSKeyRegistry {
         bytes32 salt_pin;
         bytes32 nonce;
         bytes seed;
+        bytes32 commitment_pin;
     }
 
     function isRegistered(address user) external view returns (bool);

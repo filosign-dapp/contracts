@@ -4,7 +4,8 @@
   "scripts": {
     "localnode": "hardhat node",
     "compile": "hardhat compile",
-    "pretest": "hardhat compile"
+    "pretest": "hardhat compile",
+    "gen:interfaces": "bun run scripts/generateInterfaces.ts"
   },
   "devDependencies": {
     "@filoz/synapse-sdk": "^0.25.1",
