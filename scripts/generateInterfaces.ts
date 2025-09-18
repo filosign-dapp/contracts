@@ -216,7 +216,46 @@ function generateInterfaceForContract(
           lines.push(`    ${sig}`);
           break;
         }
+        case "VariableDeclaration": {
+          if (sub.visibility === "public") {
+            const varType = typeNameToString(sub.typeName);
+            const varName = sub.name;
 
+            let params = "";
+            if (sub.typeName.type === "ArrayTypeName") {
+              params = `uint256 index`;
+            } else if (sub.typeName.type === "Mapping") {
+              const keyType = typeNameToString(sub.typeName.keyType);
+              params = `${keyType} key`;
+            }
+
+            const getterSig = `function ${varName}(${params}) external view returns (${varType});`;
+            lines.push(`    ${getterSig}`);
+          }
+          break;
+        }
+        case "StateVariableDeclaration": {
+          if (sub.variables && Array.isArray(sub.variables)) {
+            for (const variable of sub.variables) {
+              if (variable.visibility === "public") {
+                const varType = typeNameToString(variable.typeName);
+                const varName = variable.name;
+
+                let params = "";
+                if (variable.typeName.type === "ArrayTypeName") {
+                  params = `uint256 index`;
+                } else if (variable.typeName.type === "Mapping") {
+                  const keyType = typeNameToString(variable.typeName.keyType);
+                  params = `${keyType} key`;
+                }
+
+                const getterSig = `function ${varName}(${params}) external view returns (${varType});`;
+                lines.push(`    ${getterSig}`);
+              }
+            }
+          }
+          break;
+        }
         default:
           break;
       }
