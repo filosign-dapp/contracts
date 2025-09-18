@@ -24,6 +24,7 @@ interface IFSFileRegistry {
     function manager() external view returns (address);
     function acknowledge(bytes32 cidIdentifier_) external;
     function registerFile(bytes32 pieceCidPrefix_, uint16 pieceCidTail_, address recipient_) external;
+    function submitSignature(bytes32 cidIdentifier_, bytes32 signatureVisualHash_, uint8 v_, bytes32 r_, bytes32 s_) external;
     function cidIdentifier(bytes32 pieceCidPrefix_, uint16 pieceCidTail_) external pure returns (bytes32);
     function getFileData(bytes32 cidIdentifier_) external view returns (FileData memory);
     function getSignatureData(bytes32 cidIdentifier_) external view returns (SignatureData memory);
