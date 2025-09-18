@@ -5,11 +5,11 @@ pragma solidity ^0.8.26;
 
 interface IFSFileRegistry {
     struct FileData {
-        string cid;
+        bytes32 pieceCidPrefix;
+        uint16 pieceCidTail;
         address sender;
         address recipient;
         bool acked;
-        bytes32 ownerSignature;
     }
 
     struct SignatureData {
@@ -21,4 +21,10 @@ interface IFSFileRegistry {
         bytes32 s;
     }
 
+    function manager() external view returns (address);
+    function acknowledge(bytes32 cidIdentifier_) external;
+    function registerFile(bytes32 pieceCidPrefix_, uint16 pieceCidTail_, address recipient_) external;
+    function cidIdentifier(bytes32 pieceCidPrefix_, uint16 pieceCidTail_) external pure returns (bytes32);
+    function getFileData(bytes32 cidIdentifier_) external view returns (FileData memory);
+    function getSignatureData(bytes32 cidIdentifier_) external view returns (SignatureData memory);
 }

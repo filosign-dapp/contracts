@@ -9,5 +9,7 @@ interface IFSManager {
     function KeyRegistry() external view returns (address);
     function server() external view returns (address);
     function version() external view returns (uint8);
+    function approvedSenders(address key, address key1) external view returns (bool);
     function setActiveVersion(uint8 version_) external;
+    function approveSender(address sender_) external;
 }
