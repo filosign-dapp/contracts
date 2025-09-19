@@ -1,5 +1,5 @@
 import { CID } from "multiformats/cid";
-import { encodePacked, type Hash, toHex } from "viem";
+import { encodePacked, type Hash, keccak256, toHex } from "viem";
 import { waitForTransactionReceipt } from "viem/_types/actions/public/waitForTransactionReceipt";
 
 export function parsePieceCid(pieceCid: string) {
@@ -31,7 +31,9 @@ export function parsePieceCid(pieceCid: string) {
   };
 }
 
-export function cidIdentifier(pieceCid: string) {
+export function computeCidIdentifier(pieceCid: string) {
   const { digestPrefix, digestTail } = parsePieceCid(pieceCid);
-  return encodePacked(["bytes32", "uint16"], [digestPrefix, digestTail]);
+  return keccak256(
+    encodePacked(["bytes32", "uint16"], [digestPrefix, digestTail])
+  );
 }
