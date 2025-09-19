@@ -76,15 +76,20 @@ function typeNameToString(node: any): string {
 }
 
 function needsDataLocation(typeName: string): boolean {
-  return (
-    typeName === "string" ||
-    typeName === "bytes" ||
-    typeName.endsWith("[]") ||
-    (typeName.startsWith("bytes") && typeName.length > 5) ||
-    (typeName[0] === typeName[0].toUpperCase() &&
-      !typeName.startsWith("I") &&
-      typeName !== "address")
-  );
+  if (typeName === "string" || typeName === "bytes") return true;
+  if (typeName.endsWith("[]")) return true;
+  if (typeName.startsWith("mapping(")) return true;
+  // Structs: starts with uppercase, not value types
+  if (
+    typeName[0] === typeName[0].toUpperCase() &&
+    typeName !== "address" &&
+    !typeName.startsWith("I") &&
+    !typeName.startsWith("Uint") &&
+    !typeName.startsWith("Int") &&
+    !typeName.startsWith("Bytes")
+  )
+    return true;
+  return false;
 }
 
 function extractMappingParams(
