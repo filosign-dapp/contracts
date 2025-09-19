@@ -14,7 +14,8 @@ contract FSKeyRegistry {
     }
 
     mapping(address => KeygenData) public keygenData;
-    mapping(address => uint8) keygenDataVersion;
+    mapping(address => uint8) public keygenDataVersion;
+    mapping(address => bytes32) public publicKeys;
 
     IFSManager public manager;
 
