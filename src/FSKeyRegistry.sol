@@ -27,11 +27,15 @@ contract FSKeyRegistry {
         return keygenData[user_].nonce != bytes32(0);
     }
 
-    function registerKeygenData(KeygenData memory data_) external {
+    function registerKeygenData(
+        KeygenData memory data_,
+        bytes32 publicKey_
+    ) external {
         require(data_.nonce != bytes32(0), "Invalid nonce");
         require(isRegistered(msg.sender) == false, "Data already registered");
 
         keygenDataVersion[msg.sender] = manager.version();
         keygenData[msg.sender] = data_;
+        publicKeys[msg.sender] = publicKey_;
     }
 }
