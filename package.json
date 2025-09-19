@@ -1,11 +1,26 @@
 {
-  "name": "contracts",
+  "name": "@filosign/contracts",
   "version": "1.0.0",
+  "main": "./dist/exports.js",
+  "types": "./dist/exports.d.ts",
+  "files": [
+    "dist/**/*",
+    "artifacts/**/*"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/exports.d.ts",
+      "require": "./dist/exports.js",
+      "import": "./dist/exports.js"
+    }
+  },
   "scripts": {
     "localnode": "hardhat node",
-    "compile": "bun gen:interfaces; hardhat compile",
-    "pretest": "hardhat compile",
-    "gen:interfaces": "bun run scripts/generateInterfaces.ts"
+    "compile": "bun gen:interfaces; bun --bun hardhat compile",
+    "build": "bun compile; tsc",
+    "pretest": "bun compile",
+    "gen:interfaces": "bun run scripts/generateInterfaces.ts",
+    "migrate": "bunx --bun hardhat run scripts/deploy.ts --network filecoinCalibration"
   },
   "devDependencies": {
     "@filoz/synapse-sdk": "^0.25.1",
