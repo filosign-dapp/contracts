@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.definitions = void 0;
 exports.definitions = {
     "FSManager": {
+        "address": "0x7b4809b5335bf3ea8eb65a4da0f0ff7190f8afed",
         "abi": [
             {
                 "inputs": [],
@@ -124,10 +125,10 @@ exports.definitions = {
                 "stateMutability": "view",
                 "type": "function"
             }
-        ],
-        "address": "0x589a6659084bffa6e76793ed67617f10636d0ae3"
+        ]
     },
     "FSFileRegistry": {
+        "address": "0x75a88cB307fd9b77CE237Af23F2421BeC6047e09",
         "abi": [
             {
                 "inputs": [],
@@ -337,10 +338,10 @@ exports.definitions = {
                 "stateMutability": "nonpayable",
                 "type": "function"
             }
-        ],
-        "address": "0x9Af32E8202687180CdcCFcDcb4c2019b42e9BEAd"
+        ]
     },
     "FSKeyRegistry": {
+        "address": "0x713bBdd6f9c4111df1fFB37D147dBEf5eB56a66F",
         "abi": [
             {
                 "inputs": [],
@@ -411,6 +412,25 @@ exports.definitions = {
                 "type": "function"
             },
             {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "name": "keygenDataVersion",
+                "outputs": [
+                    {
+                        "internalType": "uint8",
+                        "name": "",
+                        "type": "uint8"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
                 "inputs": [],
                 "name": "manager",
                 "outputs": [
@@ -418,6 +438,25 @@ exports.definitions = {
                         "internalType": "contract IFSManager",
                         "name": "",
                         "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "name": "publicKeys",
+                "outputs": [
+                    {
+                        "internalType": "bytes32",
+                        "name": "",
+                        "type": "bytes32"
                     }
                 ],
                 "stateMutability": "view",
@@ -461,6 +500,11 @@ exports.definitions = {
                         "internalType": "struct FSKeyRegistry.KeygenData",
                         "name": "data_",
                         "type": "tuple"
+                    },
+                    {
+                        "internalType": "bytes32",
+                        "name": "publicKey_",
+                        "type": "bytes32"
                     }
                 ],
                 "name": "registerKeygenData",
@@ -468,7 +512,6 @@ exports.definitions = {
                 "stateMutability": "nonpayable",
                 "type": "function"
             }
-        ],
-        "address": "0x8ab1D044bc4eC0a68bcf842E01832C2862F53910"
+        ]
     }
 };

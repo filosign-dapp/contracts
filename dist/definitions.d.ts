@@ -1,5 +1,6 @@
 export declare const definitions: {
     readonly FSManager: {
+        readonly address: "0x7b4809b5335bf3ea8eb65a4da0f0ff7190f8afed";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -93,9 +94,9 @@ export declare const definitions: {
             readonly stateMutability: "view";
             readonly type: "function";
         }];
-        readonly address: "0x589a6659084bffa6e76793ed67617f10636d0ae3";
     };
     readonly FSFileRegistry: {
+        readonly address: "0x75a88cB307fd9b77CE237Af23F2421BeC6047e09";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -257,9 +258,9 @@ export declare const definitions: {
             readonly stateMutability: "nonpayable";
             readonly type: "function";
         }];
-        readonly address: "0x9Af32E8202687180CdcCFcDcb4c2019b42e9BEAd";
     };
     readonly FSKeyRegistry: {
+        readonly address: "0x713bBdd6f9c4111df1fFB37D147dBEf5eB56a66F";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -313,12 +314,40 @@ export declare const definitions: {
             readonly stateMutability: "view";
             readonly type: "function";
         }, {
+            readonly inputs: readonly [{
+                readonly internalType: "address";
+                readonly name: "";
+                readonly type: "address";
+            }];
+            readonly name: "keygenDataVersion";
+            readonly outputs: readonly [{
+                readonly internalType: "uint8";
+                readonly name: "";
+                readonly type: "uint8";
+            }];
+            readonly stateMutability: "view";
+            readonly type: "function";
+        }, {
             readonly inputs: readonly [];
             readonly name: "manager";
             readonly outputs: readonly [{
                 readonly internalType: "contract IFSManager";
                 readonly name: "";
                 readonly type: "address";
+            }];
+            readonly stateMutability: "view";
+            readonly type: "function";
+        }, {
+            readonly inputs: readonly [{
+                readonly internalType: "address";
+                readonly name: "";
+                readonly type: "address";
+            }];
+            readonly name: "publicKeys";
+            readonly outputs: readonly [{
+                readonly internalType: "bytes32";
+                readonly name: "";
+                readonly type: "bytes32";
             }];
             readonly stateMutability: "view";
             readonly type: "function";
@@ -352,12 +381,15 @@ export declare const definitions: {
                 readonly internalType: "struct FSKeyRegistry.KeygenData";
                 readonly name: "data_";
                 readonly type: "tuple";
+            }, {
+                readonly internalType: "bytes32";
+                readonly name: "publicKey_";
+                readonly type: "bytes32";
             }];
             readonly name: "registerKeygenData";
             readonly outputs: readonly [];
             readonly stateMutability: "nonpayable";
             readonly type: "function";
         }];
-        readonly address: "0x8ab1D044bc4eC0a68bcf842E01832C2862F53910";
     };
 };

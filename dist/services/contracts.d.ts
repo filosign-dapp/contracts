@@ -1700,7 +1700,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
             }], "setActiveVersion", readonly [number], T_4["chain"], T_4["account"], chainOverride>, "address" | "abi" | "args" | "functionName"> extends infer T_5 ? { [K_2 in keyof T_5]: T_5[K_2]; } : never>(args: readonly [number], ...parameters: (import("viem").IsUndefined<T_4["account"]> extends infer T_6 ? T_6 extends import("viem").IsUndefined<T_4["account"]> ? T_6 extends true ? true : import("viem").IsUndefined<T_4["chain"]> extends infer T_7 ? T_7 extends import("viem").IsUndefined<T_4["chain"]> ? T_7 extends true ? true : false : never : never : never : never) extends infer T_8 ? T_8 extends (import("viem").IsUndefined<T_4["account"]> extends infer T_9 ? T_9 extends import("viem").IsUndefined<T_4["account"]> ? T_9 extends true ? true : import("viem").IsUndefined<T_4["chain"]> extends infer T_10 ? T_10 extends import("viem").IsUndefined<T_4["chain"]> ? T_10 extends true ? true : false : never : never : never : never) ? T_8 extends true ? [options: options] : [options?: options | undefined] : never : never) => Promise<import("viem").WriteContractReturnType>;
         };
     } : unknown : never : never) extends infer T_2 ? { [K_1 in keyof T_2]: T_2[K_1]; } : never) & {
-        address: "0x589a6659084bffa6e76793ed67617f10636d0ae3";
+        address: "0x7b4809b5335bf3ea8eb65a4da0f0ff7190f8afed";
         abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -5378,7 +5378,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
             }], "submitSignature", readonly [`0x${string}`, `0x${string}`, number, `0x${string}`, `0x${string}`], T_8["chain"], T_8["account"], chainOverride>, "address" | "abi" | "args" | "functionName"> extends infer T_9 ? { [K_4 in keyof T_9]: T_9[K_4]; } : never>(args: readonly [`0x${string}`, `0x${string}`, number, `0x${string}`, `0x${string}`], ...parameters: (import("viem").IsUndefined<T_8["account"]> extends infer T_10 ? T_10 extends import("viem").IsUndefined<T_8["account"]> ? T_10 extends true ? true : import("viem").IsUndefined<T_8["chain"]> extends infer T_11 ? T_11 extends import("viem").IsUndefined<T_8["chain"]> ? T_11 extends true ? true : false : never : never : never : never) extends infer T_12 ? T_12 extends (import("viem").IsUndefined<T_8["account"]> extends infer T_13 ? T_13 extends import("viem").IsUndefined<T_8["account"]> ? T_13 extends true ? true : import("viem").IsUndefined<T_8["chain"]> extends infer T_14 ? T_14 extends import("viem").IsUndefined<T_8["chain"]> ? T_14 extends true ? true : false : never : never : never : never) ? T_12 extends true ? [options: options] : [options?: options | undefined] : never : never) => Promise<import("viem").WriteContractReturnType>;
         };
     } : unknown : never : never) extends infer T_6 ? { [K_3 in keyof T_6]: T_6[K_3]; } : never) & {
-        address: "0x9Af32E8202687180CdcCFcDcb4c2019b42e9BEAd";
+        address: "0x75a88cB307fd9b77CE237Af23F2421BeC6047e09";
         abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -5600,12 +5600,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -5639,6 +5667,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
@@ -5698,12 +5730,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -5737,6 +5797,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
@@ -5796,12 +5860,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -5835,12 +5927,276 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "function";
             }], "keygenData", readonly [`0x${string}`]>, "address" | "abi" | "args" | "functionName">> | undefined) => Promise<readonly [`0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`]>;
+            keygenDataVersion: (args: readonly [`0x${string}`], options?: import("viem").Prettify<import("viem").UnionOmit<import("viem").ReadContractParameters<readonly [{
+                readonly inputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "constructor";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "user_";
+                    readonly type: "address";
+                }];
+                readonly name: "isRegistered";
+                readonly outputs: readonly [{
+                    readonly internalType: "bool";
+                    readonly name: "";
+                    readonly type: "bool";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenData";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "salt_auth";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "salt_wrap";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "salt_pin";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "nonce";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes";
+                    readonly name: "seed";
+                    readonly type: "bytes";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "commitment_pin";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [];
+                readonly name: "manager";
+                readonly outputs: readonly [{
+                    readonly internalType: "contract IFSManager";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "salt_auth";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "salt_wrap";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "salt_pin";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "nonce";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes";
+                        readonly name: "seed";
+                        readonly type: "bytes";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "commitment_pin";
+                        readonly type: "bytes32";
+                    }];
+                    readonly internalType: "struct FSKeyRegistry.KeygenData";
+                    readonly name: "data_";
+                    readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "registerKeygenData";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }], "keygenDataVersion", readonly [`0x${string}`]>, "address" | "abi" | "args" | "functionName">> | undefined) => Promise<number>;
+            publicKeys: (args: readonly [`0x${string}`], options?: import("viem").Prettify<import("viem").UnionOmit<import("viem").ReadContractParameters<readonly [{
+                readonly inputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "constructor";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "user_";
+                    readonly type: "address";
+                }];
+                readonly name: "isRegistered";
+                readonly outputs: readonly [{
+                    readonly internalType: "bool";
+                    readonly name: "";
+                    readonly type: "bool";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenData";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "salt_auth";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "salt_wrap";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "salt_pin";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "nonce";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes";
+                    readonly name: "seed";
+                    readonly type: "bytes";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "commitment_pin";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [];
+                readonly name: "manager";
+                readonly outputs: readonly [{
+                    readonly internalType: "contract IFSManager";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "salt_auth";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "salt_wrap";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "salt_pin";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "nonce";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes";
+                        readonly name: "seed";
+                        readonly type: "bytes";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "commitment_pin";
+                        readonly type: "bytes32";
+                    }];
+                    readonly internalType: "struct FSKeyRegistry.KeygenData";
+                    readonly name: "data_";
+                    readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "registerKeygenData";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }], "publicKeys", readonly [`0x${string}`]>, "address" | "abi" | "args" | "functionName">> | undefined) => Promise<`0x${string}`>;
         };
     } & {
         estimateGas: {
@@ -5851,7 +6207,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], options: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
+            }, `0x${string}`], options: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
                 readonly inputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
@@ -5904,12 +6260,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -5943,6 +6327,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
@@ -5955,7 +6343,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], T_11["chain"]>, "address" | "abi" | "args" | "functionName">>) => Promise<import("viem").EstimateContractGasReturnType>;
+            }, `0x${string}`], T_11["chain"]>, "address" | "abi" | "args" | "functionName">>) => Promise<import("viem").EstimateContractGasReturnType>;
         };
         simulate: {
             registerKeygenData: <chainOverride extends import("viem").Chain | undefined = undefined, accountOverride extends import("viem").Account | import("viem").Address | undefined = undefined>(args: readonly [{
@@ -5965,7 +6353,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], options?: Omit<import("viem").SimulateContractParameters<readonly [{
+            }, `0x${string}`], options?: Omit<import("viem").SimulateContractParameters<readonly [{
                 readonly inputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
@@ -6018,12 +6406,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -6057,6 +6473,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
@@ -6069,7 +6489,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], T_11["chain"], chainOverride, accountOverride>, "address" | "abi" | "args" | "functionName"> | undefined) => Promise<import("viem").SimulateContractReturnType<readonly [{
+            }, `0x${string}`], T_11["chain"], chainOverride, accountOverride>, "address" | "abi" | "args" | "functionName"> | undefined) => Promise<import("viem").SimulateContractReturnType<readonly [{
                 readonly inputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
@@ -6122,12 +6542,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -6161,6 +6609,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
@@ -6173,7 +6625,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], T_11["chain"], (T extends {
+            }, `0x${string}`], T_11["chain"], (T extends {
                 wallet: Client;
             } ? T["wallet"] : T) extends infer T_12 ? T_12 extends (T extends {
                 wallet: Client;
@@ -6192,7 +6644,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], ...parameters: import("viem").IsUndefined<T_12["account"]> extends infer T_13 ? T_13 extends import("viem").IsUndefined<T_12["account"]> ? T_13 extends true ? [options: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
+            }, `0x${string}`], ...parameters: import("viem").IsUndefined<T_12["account"]> extends infer T_13 ? T_13 extends import("viem").IsUndefined<T_12["account"]> ? T_13 extends true ? [options: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
                 readonly inputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
@@ -6245,12 +6697,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -6284,6 +6764,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
@@ -6296,7 +6780,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], T_12["chain"]>, "address" | "abi" | "args" | "functionName">>] : [options?: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
+            }, `0x${string}`], T_12["chain"]>, "address" | "abi" | "args" | "functionName">>] : [options?: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
                 readonly inputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
@@ -6349,12 +6833,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -6388,6 +6900,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
@@ -6400,7 +6916,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], T_12["chain"]>, "address" | "abi" | "args" | "functionName">> | undefined] : never : never) => Promise<import("viem").EstimateContractGasReturnType>;
+            }, `0x${string}`], T_12["chain"]>, "address" | "abi" | "args" | "functionName">> | undefined] : never : never) => Promise<import("viem").EstimateContractGasReturnType>;
         };
         write: {
             registerKeygenData: <chainOverride extends import("viem").Chain | undefined, options extends import("viem").UnionOmit<import("viem").WriteContractParameters<readonly [{
@@ -6456,12 +6972,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "view";
                 readonly type: "function";
             }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "keygenDataVersion";
+                readonly outputs: readonly [{
+                    readonly internalType: "uint8";
+                    readonly name: "";
+                    readonly type: "uint8";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
                 readonly inputs: readonly [];
                 readonly name: "manager";
                 readonly outputs: readonly [{
                     readonly internalType: "contract IFSManager";
                     readonly name: "";
                     readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "address";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly name: "publicKeys";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
                 }];
                 readonly stateMutability: "view";
                 readonly type: "function";
@@ -6495,6 +7039,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "struct FSKeyRegistry.KeygenData";
                     readonly name: "data_";
                     readonly type: "tuple";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "publicKey_";
+                    readonly type: "bytes32";
                 }];
                 readonly name: "registerKeygenData";
                 readonly outputs: readonly [];
@@ -6507,17 +7055,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], T_12["chain"], T_12["account"], chainOverride>, "address" | "abi" | "args" | "functionName"> extends infer T_13 ? { [K_6 in keyof T_13]: T_13[K_6]; } : never>(args: readonly [{
+            }, `0x${string}`], T_12["chain"], T_12["account"], chainOverride>, "address" | "abi" | "args" | "functionName"> extends infer T_13 ? { [K_6 in keyof T_13]: T_13[K_6]; } : never>(args: readonly [{
                 salt_auth: `0x${string}`;
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
                 seed: `0x${string}`;
                 commitment_pin: `0x${string}`;
-            }], ...parameters: (import("viem").IsUndefined<T_12["account"]> extends infer T_14 ? T_14 extends import("viem").IsUndefined<T_12["account"]> ? T_14 extends true ? true : import("viem").IsUndefined<T_12["chain"]> extends infer T_15 ? T_15 extends import("viem").IsUndefined<T_12["chain"]> ? T_15 extends true ? true : false : never : never : never : never) extends infer T_16 ? T_16 extends (import("viem").IsUndefined<T_12["account"]> extends infer T_17 ? T_17 extends import("viem").IsUndefined<T_12["account"]> ? T_17 extends true ? true : import("viem").IsUndefined<T_12["chain"]> extends infer T_18 ? T_18 extends import("viem").IsUndefined<T_12["chain"]> ? T_18 extends true ? true : false : never : never : never : never) ? T_16 extends true ? [options: options] : [options?: options | undefined] : never : never) => Promise<import("viem").WriteContractReturnType>;
+            }, `0x${string}`], ...parameters: (import("viem").IsUndefined<T_12["account"]> extends infer T_14 ? T_14 extends import("viem").IsUndefined<T_12["account"]> ? T_14 extends true ? true : import("viem").IsUndefined<T_12["chain"]> extends infer T_15 ? T_15 extends import("viem").IsUndefined<T_12["chain"]> ? T_15 extends true ? true : false : never : never : never : never) extends infer T_16 ? T_16 extends (import("viem").IsUndefined<T_12["account"]> extends infer T_17 ? T_17 extends import("viem").IsUndefined<T_12["account"]> ? T_17 extends true ? true : import("viem").IsUndefined<T_12["chain"]> extends infer T_18 ? T_18 extends import("viem").IsUndefined<T_12["chain"]> ? T_18 extends true ? true : false : never : never : never : never) ? T_16 extends true ? [options: options] : [options?: options | undefined] : never : never) => Promise<import("viem").WriteContractReturnType>;
         };
     } : unknown : never : never) extends infer T_10 ? { [K_5 in keyof T_10]: T_10[K_5]; } : never) & {
-        address: "0x8ab1D044bc4eC0a68bcf842E01832C2862F53910";
+        address: "0x713bBdd6f9c4111df1fFB37D147dBEf5eB56a66F";
         abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -6571,12 +7119,40 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
             readonly stateMutability: "view";
             readonly type: "function";
         }, {
+            readonly inputs: readonly [{
+                readonly internalType: "address";
+                readonly name: "";
+                readonly type: "address";
+            }];
+            readonly name: "keygenDataVersion";
+            readonly outputs: readonly [{
+                readonly internalType: "uint8";
+                readonly name: "";
+                readonly type: "uint8";
+            }];
+            readonly stateMutability: "view";
+            readonly type: "function";
+        }, {
             readonly inputs: readonly [];
             readonly name: "manager";
             readonly outputs: readonly [{
                 readonly internalType: "contract IFSManager";
                 readonly name: "";
                 readonly type: "address";
+            }];
+            readonly stateMutability: "view";
+            readonly type: "function";
+        }, {
+            readonly inputs: readonly [{
+                readonly internalType: "address";
+                readonly name: "";
+                readonly type: "address";
+            }];
+            readonly name: "publicKeys";
+            readonly outputs: readonly [{
+                readonly internalType: "bytes32";
+                readonly name: "";
+                readonly type: "bytes32";
             }];
             readonly stateMutability: "view";
             readonly type: "function";
@@ -6610,6 +7186,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly internalType: "struct FSKeyRegistry.KeygenData";
                 readonly name: "data_";
                 readonly type: "tuple";
+            }, {
+                readonly internalType: "bytes32";
+                readonly name: "publicKey_";
+                readonly type: "bytes32";
             }];
             readonly name: "registerKeygenData";
             readonly outputs: readonly [];

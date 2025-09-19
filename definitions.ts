@@ -1,6 +1,6 @@
 export const definitions = {
   "FSManager": {
-    "address": "0x495d0dd099e7d1e4916f11c4138a758fdfb1e116",
+    "address": "0x7b4809b5335bf3ea8eb65a4da0f0ff7190f8afed",
     "abi": [
       {
         "inputs": [],
@@ -125,7 +125,7 @@ export const definitions = {
     ]
   },
   "FSFileRegistry": {
-    "address": "0x58cB8dFfcBee220390d0Fdd7427d2c200E1c0D87",
+    "address": "0x75a88cB307fd9b77CE237Af23F2421BeC6047e09",
     "abi": [
       {
         "inputs": [],
@@ -338,7 +338,7 @@ export const definitions = {
     ]
   },
   "FSKeyRegistry": {
-    "address": "0xcDfD8DC597b23A066C0083B72637c62033E5Fd00",
+    "address": "0x713bBdd6f9c4111df1fFB37D147dBEf5eB56a66F",
     "abi": [
       {
         "inputs": [],
