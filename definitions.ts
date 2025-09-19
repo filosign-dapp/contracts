@@ -1,5 +1,6 @@
 export const definitions = {
   "FSManager": {
+    "address": "0x495d0dd099e7d1e4916f11c4138a758fdfb1e116",
     "abi": [
       {
         "inputs": [],
@@ -121,10 +122,10 @@ export const definitions = {
         "stateMutability": "view",
         "type": "function"
       }
-    ],
-    "address": "0x589a6659084bffa6e76793ed67617f10636d0ae3"
+    ]
   },
   "FSFileRegistry": {
+    "address": "0x58cB8dFfcBee220390d0Fdd7427d2c200E1c0D87",
     "abi": [
       {
         "inputs": [],
@@ -334,10 +335,10 @@ export const definitions = {
         "stateMutability": "nonpayable",
         "type": "function"
       }
-    ],
-    "address": "0x9Af32E8202687180CdcCFcDcb4c2019b42e9BEAd"
+    ]
   },
   "FSKeyRegistry": {
+    "address": "0xcDfD8DC597b23A066C0083B72637c62033E5Fd00",
     "abi": [
       {
         "inputs": [],
@@ -408,6 +409,25 @@ export const definitions = {
         "type": "function"
       },
       {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "name": "keygenDataVersion",
+        "outputs": [
+          {
+            "internalType": "uint8",
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
         "inputs": [],
         "name": "manager",
         "outputs": [
@@ -415,6 +435,25 @@ export const definitions = {
             "internalType": "contract IFSManager",
             "name": "",
             "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "name": "publicKeys",
+        "outputs": [
+          {
+            "internalType": "bytes32",
+            "name": "",
+            "type": "bytes32"
           }
         ],
         "stateMutability": "view",
@@ -458,6 +497,11 @@ export const definitions = {
             "internalType": "struct FSKeyRegistry.KeygenData",
             "name": "data_",
             "type": "tuple"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "publicKey_",
+            "type": "bytes32"
           }
         ],
         "name": "registerKeygenData",
@@ -465,7 +509,6 @@ export const definitions = {
         "stateMutability": "nonpayable",
         "type": "function"
       }
-    ],
-    "address": "0x8ab1D044bc4eC0a68bcf842E01832C2862F53910"
+    ]
   }
 } as const;

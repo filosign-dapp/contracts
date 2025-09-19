@@ -20,7 +20,7 @@
     "build": "bun compile; tsc",
     "pretest": "bun compile",
     "gen:interfaces": "bun run scripts/generateInterfaces.ts",
-    "migrate": "bunx --bun hardhat run scripts/deploy.ts --network filecoinCalibration"
+    "migrate": "bun run build; bunx --bun hardhat run scripts/deploy.ts --network filecoinCalibration"
   },
   "devDependencies": {
     "@filoz/synapse-sdk": "^0.25.1",
