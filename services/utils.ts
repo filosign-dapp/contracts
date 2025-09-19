@@ -1,7 +1,7 @@
 import { CID } from "multiformats/cid";
 import { toHex } from "viem";
 
-function parsePieceCid(pieceCid: string) {
+export function parsePieceCid(pieceCid: string) {
   const cid = CID.parse(pieceCid);
 
   const codecNumeric = cid.code;
@@ -29,9 +29,3 @@ function parsePieceCid(pieceCid: string) {
     rawDigest,
   };
 }
-
-console.log(
-  parsePieceCid(
-    "bafkzcibcbub2cd46abwvhoohwhmmjugyjibda32vn4a4qlcrv5dc76s24s67qai"
-  )
-);
