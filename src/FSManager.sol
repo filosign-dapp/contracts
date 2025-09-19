@@ -5,9 +5,9 @@ import "./FSFileRegistry.sol";
 import "./FSKeyRegistry.sol";
 
 contract FSManager {
-    address public CidRegistry;
-    address public FileRegistry;
-    address public KeyRegistry;
+    address public cidRegistry;
+    address public fileRegistry;
+    address public keyRegistry;
 
     address public server;
 
@@ -22,8 +22,8 @@ contract FSManager {
 
     constructor() {
         server = msg.sender;
-        FileRegistry = address(new FSFileRegistry());
-        KeyRegistry = address(new FSKeyRegistry());
+        fileRegistry = address(new FSFileRegistry());
+        keyRegistry = address(new FSKeyRegistry());
     }
 
     function setActiveVersion(uint8 version_) external onlyServer {
