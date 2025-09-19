@@ -26,7 +26,11 @@ async function setupFixture() {
   const [deployer, user] = await hre.viem.getWalletClients();
   const admin = (await hre.viem.getTestClient()).extend(publicActions);
 
-  const keyRegistry = await hre.viem.deployContract("FSKeyRegistry");
+  const manager = await hre.viem.deployContract("FSManager");
+  const keyRegistry = await hre.viem.getContractAt(
+    "FSKeyRegistry",
+    await manager.read.keyRegistry()
+  );
   const version = 1; //await keyRegistry.read.version();
 
   return { deployer, user, keyRegistry, version, admin };
