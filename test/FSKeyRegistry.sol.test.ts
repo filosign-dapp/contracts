@@ -19,6 +19,7 @@ import {
   toHex,
   generateNonce,
   toB64,
+  getPublicKeyFromRegenerated,
 } from "filosign-crypto-utils";
 import { describe, it } from "bun:test";
 
@@ -80,6 +81,16 @@ describe("FSKeyRegistry", () => {
       encodePacked(["string", "string"], [base_material.pinSalt, pin])
     );
 
+    const { publicKey } = getPublicKeyFromRegenerated(
+      signature,
+      pin,
+      base_material.pinSalt,
+      base_material.authSalt,
+      base_material.wrapperSalt,
+      enc_material.encSeed,
+      "test"
+    );
+
     const txHash = await keyRegistry.write.registerKeygenData(
       [
         {
@@ -90,6 +101,7 @@ describe("FSKeyRegistry", () => {
           seed: `0x${toHex(enc_material.encSeed)}`,
           commitment_pin,
         },
+        `0x${toHex(publicKey)}`,
       ],
       { account: user.account }
     );
