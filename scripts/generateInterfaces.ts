@@ -227,21 +227,23 @@ function errorToSignature(node: any): string {
   return `error ${name}(${params});`;
 }
 
-function extractImmutableVariables(fileText: string): Map<string, {varName: string, type: string}> {
-  const immutableVars = new Map<string, {varName: string, type: string}>();
-  const lines = fileText.split('\n');
-  
+function extractImmutableVariables(
+  fileText: string
+): Map<string, { varName: string; type: string }> {
+  const immutableVars = new Map<string, { varName: string; type: string }>();
+  const lines = fileText.split("\n");
+
   for (const line of lines) {
     const trimmed = line.trim();
-    if (trimmed.includes('public immutable')) {
+    if (trimmed.includes("public immutable")) {
       const match = trimmed.match(/(\w+)\s+public\s+immutable\s+(\w+);/);
       if (match) {
         const [, type, varName] = match;
-        immutableVars.set(type, {varName, type});
+        immutableVars.set(type, { varName, type });
       }
     }
   }
-  
+
   return immutableVars;
 }
 
@@ -254,7 +256,7 @@ function generateInterfaceForContract(
   const name = contractNode.name;
   const ifaceName = `I${name}`;
   const outFilename = path.join(OUT_DIR, `I${name}.sol`);
-  
+
   const immutableVars = extractImmutableVariables(sourceText);
 
   const lines: string[] = [];
@@ -332,7 +334,7 @@ function generateInterfaceForContract(
               if (variable.visibility === "public") {
                 const varType = typeNameToString(variable.typeName);
                 let varName = variable.name;
-                
+
                 if (varName === "immutable") {
                   const immutableInfo = immutableVars.get(varType);
                   if (immutableInfo) {
