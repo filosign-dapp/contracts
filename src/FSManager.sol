@@ -9,7 +9,7 @@ contract FSManager {
     address public fileRegistry;
     address public keyRegistry;
 
-    address public server;
+    address public immutable server;
 
     uint8 public version = 1;
 
