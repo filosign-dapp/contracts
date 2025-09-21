@@ -27,6 +27,23 @@ contract FSFileRegistry {
 
     IFSManager public immutable manager;
 
+    event FileRegistered(
+        bytes32 indexed cidIdentifier,
+        address indexed sender,
+        address indexed recipient,
+        uint48 timestamp
+    );
+    event FileAcknowledged(
+        bytes32 indexed cidIdentifier,
+        address indexed recipient,
+        uint48 timestamp
+    );
+    event SignatureSubmitted(
+        bytes32 indexed cidIdentifier,
+        address indexed signer,
+        uint48 timestamp
+    );
+
     constructor() {
         manager = IFSManager(msg.sender);
     }
@@ -38,6 +55,12 @@ contract FSFileRegistry {
         require(file.acked == false, "Already acknowledged");
 
         file.acked = true;
+
+        emit FileAcknowledged(
+            cidIdentifier_,
+            msg.sender,
+            uint48(block.timestamp)
+        );
     }
 
     function registerFile(
@@ -60,6 +83,13 @@ contract FSFileRegistry {
         file.sender = msg.sender;
         file.recipient = recipient_;
         file.acked = false;
+
+        emit FileRegistered(
+            cidIdentifier(pieceCidPrefix_, pieceCidTail_),
+            msg.sender,
+            recipient_,
+            uint48(block.timestamp)
+        );
     }
 
     function submitSignature(
@@ -105,6 +135,12 @@ contract FSFileRegistry {
         signature.v = v_;
         signature.r = r_;
         signature.s = s_;
+
+        emit SignatureSubmitted(
+            cidIdentifier_,
+            msg.sender,
+            uint48(block.timestamp)
+        );
     }
 
     function cidIdentifier(
