@@ -25,7 +25,7 @@ contract FSFileRegistry {
     mapping(bytes32 => FileData) private _files;
     mapping(bytes32 => SignatureData) private _signatures;
 
-    IFSManager public manager;
+    IFSManager public immutable manager;
 
     constructor() {
         manager = IFSManager(msg.sender);
