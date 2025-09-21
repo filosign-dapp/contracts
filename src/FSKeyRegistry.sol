@@ -9,7 +9,9 @@ contract FSKeyRegistry {
         bytes32 salt_wrap;
         bytes32 salt_pin;
         bytes32 nonce;
-        bytes seed;
+        bytes20 seed_head;
+        bytes32 seed_word;
+        bytes20 seed_tail;
         bytes32 commitment_pin;
     }
 
