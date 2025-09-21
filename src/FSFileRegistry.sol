@@ -33,7 +33,7 @@ contract FSFileRegistry {
 
     function acknowledge(bytes32 cidIdentifier_) external {
         FileData storage file = _files[cidIdentifier_];
-        require(file.pieceCidPrefix != bytes32(0), "File not registered");
+        require(file.sender != address(0), "File not registered");
         require(file.recipient == msg.sender, "Only recipient can ack");
         require(file.acked == false, "Already acknowledged");
 
@@ -49,7 +49,7 @@ contract FSFileRegistry {
             cidIdentifier(pieceCidPrefix_, pieceCidTail_)
         ];
 
-        require(file.pieceCidPrefix == bytes32(0), "File already registered");
+        require(file.sender == address(0), "File already registered");
         require(
             manager.approvedSenders(recipient_, msg.sender),
             "Sender not approved by recipient"
@@ -71,7 +71,7 @@ contract FSFileRegistry {
     ) external {
         FileData storage file = _files[cidIdentifier_];
         SignatureData storage signature = _signatures[cidIdentifier_];
-        require(file.pieceCidPrefix != bytes32(0), "File not registered");
+        require(file.sender != address(0), "File not registered");
         require(
             file.recipient == msg.sender,
             "Only recipient can submit signature"
