@@ -7,9 +7,9 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 contract FSFileRegistry {
     struct FileData {
         bytes32 pieceCidPrefix;
-        uint16 pieceCidTail;
         address sender;
         address recipient;
+        uint16 pieceCidTail;
         bool acked;
     }
 
