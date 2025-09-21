@@ -17,7 +17,7 @@ contract FSKeyRegistry {
     mapping(address => uint8) public keygenDataVersion;
     mapping(address => bytes32) public publicKeys;
 
-    IFSManager public manager;
+    IFSManager public immutable manager;
 
     constructor() {
         manager = IFSManager(msg.sender);
