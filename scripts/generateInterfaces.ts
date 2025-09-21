@@ -227,14 +227,35 @@ function errorToSignature(node: any): string {
   return `error ${name}(${params});`;
 }
 
+function extractImmutableVariables(fileText: string): Map<string, {varName: string, type: string}> {
+  const immutableVars = new Map<string, {varName: string, type: string}>();
+  const lines = fileText.split('\n');
+  
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.includes('public immutable')) {
+      const match = trimmed.match(/(\w+)\s+public\s+immutable\s+(\w+);/);
+      if (match) {
+        const [, type, varName] = match;
+        immutableVars.set(type, {varName, type});
+      }
+    }
+  }
+  
+  return immutableVars;
+}
+
 function generateInterfaceForContract(
   contractNode: any,
   pragma: string | null,
-  srcFilePath: string
+  srcFilePath: string,
+  sourceText: string
 ) {
   const name = contractNode.name;
   const ifaceName = `I${name}`;
   const outFilename = path.join(OUT_DIR, `I${name}.sol`);
+  
+  const immutableVars = extractImmutableVariables(sourceText);
 
   const lines: string[] = [];
   lines.push(SPDX_HEADER);
@@ -310,7 +331,14 @@ function generateInterfaceForContract(
             for (const variable of sub.variables) {
               if (variable.visibility === "public") {
                 const varType = typeNameToString(variable.typeName);
-                const varName = variable.name;
+                let varName = variable.name;
+                
+                if (varName === "immutable") {
+                  const immutableInfo = immutableVars.get(varType);
+                  if (immutableInfo) {
+                    varName = immutableInfo.varName;
+                  }
+                }
 
                 let params = "";
                 let returnType = varType;
@@ -369,7 +397,7 @@ function processFile(filePath: string) {
   parser.visit(ast, {
     ContractDefinition(node: any) {
       if (node.kind === "contract") {
-        generateInterfaceForContract(node, pragma, filePath);
+        generateInterfaceForContract(node, pragma, filePath, text);
       }
     },
   });
