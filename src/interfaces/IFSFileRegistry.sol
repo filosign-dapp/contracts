@@ -6,9 +6,9 @@ pragma solidity ^0.8.26;
 interface IFSFileRegistry {
     struct FileData {
         bytes32 pieceCidPrefix;
-        uint16 pieceCidTail;
         address sender;
         address recipient;
+        uint16 pieceCidTail;
         bool acked;
     }
 
@@ -22,6 +22,9 @@ interface IFSFileRegistry {
     }
 
     function manager() external view returns (address);
+    event FileRegistered();
+    event FileAcknowledged();
+    event SignatureSubmitted();
     function acknowledge(bytes32 cidIdentifier_) external;
     function registerFile(bytes32 pieceCidPrefix_, uint16 pieceCidTail_, address recipient_) external;
     function submitSignature(bytes32 cidIdentifier_, bytes32 signatureVisualHash_, uint8 v_, bytes32 r_, bytes32 s_) external;
