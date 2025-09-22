@@ -3,8 +3,9 @@ pragma solidity ^0.8.26;
 
 import "./interfaces/IFSManager.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 
-contract FSFileRegistry {
+contract FSFileRegistry is EIP712 {
     struct FileData {
         bytes32 pieceCidPrefix;
         address sender;
@@ -27,6 +28,11 @@ contract FSFileRegistry {
 
     IFSManager public immutable manager;
 
+    bytes32 private constant SIGNATURE_TYPEHASH =
+        keccak256(
+            "Signature(bytes32 pieceCidPrefix,uint256 pieceCidTail,bytes32 signatureVisualHash)"
+        );
+
     event FileRegistered(
         bytes32 indexed cidIdentifier,
         address indexed sender,
@@ -44,7 +50,7 @@ contract FSFileRegistry {
         uint48 timestamp
     );
 
-    constructor() {
+    constructor() EIP712("Filosign Key Registry", "1") {
         manager = IFSManager(msg.sender);
     }
 
@@ -111,23 +117,20 @@ contract FSFileRegistry {
             file.acked == true,
             "file needs to be acknowledged before submitting signature"
         );
-        // require(
-        //     verifySignature(
-        //         msg.sender,
-        //         keccak256(
-        //             abi.encodePacked(
-        //                 file.pieceCidPrefix,
-        //                 file.pieceCidTail,
-        //                 signatureVisualHash_
-        //             )
-        //         ),
-        //         v_,
-        //         r_,
-        //         s_
-        //     ),
-        //     "Invalid signature"
-        // );
-        // TODO : FIX LATER PLEASE
+
+        bytes32 structHash = keccak256(
+            abi.encode(
+                SIGNATURE_TYPEHASH,
+                file.pieceCidPrefix,
+                uint256(file.pieceCidTail),
+                signatureVisualHash_
+            )
+        );
+
+        bytes32 digest = _hashTypedDataV4(structHash);
+
+        address recovered = ECDSA.recover(digest, v_, r_, s_);
+        require(recovered == msg.sender, "Invalid signature");
 
         signature.signer = msg.sender;
         signature.timestamp = uint48(block.timestamp);
@@ -162,14 +165,15 @@ contract FSFileRegistry {
         return _signatures[cidIdentifier_];
     }
 
-    function verifySignature(
-        address signer_,
-        bytes32 messageHash_,
-        uint8 v_,
-        bytes32 r_,
-        bytes32 s_
-    ) internal pure returns (bool) {
-        address recovered = ECDSA.recover(messageHash_, v_, r_, s_);
-        return recovered == signer_;
-    }
+    // // kept for backward compatibility or other verififcation uses
+    // function verifySignature(
+    //     address signer_,
+    //     bytes32 messageHash_,
+    //     uint8 v_,
+    //     bytes32 r_,
+    //     bytes32 s_
+    // ) internal pure returns (bool) {
+    //     address recovered = ECDSA.recover(messageHash_, v_, r_, s_);
+    //     return recovered == signer_;
+    // }
 }
