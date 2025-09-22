@@ -15,6 +15,9 @@ contract FSManager {
 
     mapping(address => mapping(address => bool)) public approvedSenders; // recipeint => sender => aproved
 
+    event SenderApproved(address indexed recipient, address indexed sender);
+    event SenderRevoked(address indexed recipient, address indexed sender);
+
     modifier onlyServer() {
         require(msg.sender == server, "Only server can call");
         _;
@@ -32,5 +35,12 @@ contract FSManager {
 
     function approveSender(address sender_) external {
         approvedSenders[msg.sender][sender_] = true;
+        emit SenderApproved(msg.sender, sender_);
+    }
+
+    function revokeSender(address sender_) external {
+        require(approvedSenders[msg.sender][sender_], "Sender not approved");
+        approvedSenders[msg.sender][sender_] = false;
+        emit SenderRevoked(msg.sender, sender_);
     }
 }
