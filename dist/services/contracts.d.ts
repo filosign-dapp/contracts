@@ -1700,7 +1700,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
             }], "setActiveVersion", readonly [number], T_4["chain"], T_4["account"], chainOverride>, "address" | "abi" | "args" | "functionName"> extends infer T_5 ? { [K_2 in keyof T_5]: T_5[K_2]; } : never>(args: readonly [number], ...parameters: (import("viem").IsUndefined<T_4["account"]> extends infer T_6 ? T_6 extends import("viem").IsUndefined<T_4["account"]> ? T_6 extends true ? true : import("viem").IsUndefined<T_4["chain"]> extends infer T_7 ? T_7 extends import("viem").IsUndefined<T_4["chain"]> ? T_7 extends true ? true : false : never : never : never : never) extends infer T_8 ? T_8 extends (import("viem").IsUndefined<T_4["account"]> extends infer T_9 ? T_9 extends import("viem").IsUndefined<T_4["account"]> ? T_9 extends true ? true : import("viem").IsUndefined<T_4["chain"]> extends infer T_10 ? T_10 extends import("viem").IsUndefined<T_4["chain"]> ? T_10 extends true ? true : false : never : never : never : never) ? T_8 extends true ? [options: options] : [options?: options | undefined] : never : never) => Promise<import("viem").WriteContractReturnType>;
         };
     } : unknown : never : never) extends infer T_2 ? { [K_1 in keyof T_2]: T_2[K_1]; } : never) & {
-        address: "0x7b4809b5335bf3ea8eb65a4da0f0ff7190f8afed";
+        address: "0x88a04f015006f4dc3df73b4a5538d81d455d3b4d";
         abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -1806,6 +1806,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -1846,10 +1911,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -1857,6 +1918,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -1967,6 +2032,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -2007,10 +2137,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -2018,6 +2144,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -2124,15 +2254,80 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly type: "function";
             }], "getFileData", readonly [`0x${string}`]>, "address" | "abi" | "args" | "functionName">> | undefined) => Promise<{
                 pieceCidPrefix: `0x${string}`;
-                pieceCidTail: number;
                 sender: `0x${string}`;
                 recipient: `0x${string}`;
+                pieceCidTail: number;
                 acked: boolean;
             }>;
             getSignatureData: (args: readonly [`0x${string}`], options?: import("viem").Prettify<import("viem").UnionOmit<import("viem").ReadContractParameters<readonly [{
                 readonly inputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
             }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
@@ -2174,10 +2369,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -2185,6 +2376,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -2302,6 +2497,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -2342,10 +2602,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -2353,6 +2609,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -2466,6 +2726,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -2506,10 +2831,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -2517,6 +2838,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -2627,6 +2952,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -2667,10 +3057,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -2678,6 +3064,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -2788,6 +3178,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -2828,10 +3283,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -2839,6 +3290,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -2951,6 +3406,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -2991,10 +3511,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -3002,6 +3518,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -3111,6 +3631,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -3151,10 +3736,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -3162,6 +3743,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -3276,6 +3861,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -3316,10 +3966,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -3327,6 +3973,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -3436,6 +4086,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -3476,10 +4191,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -3487,6 +4198,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -3601,6 +4316,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -3641,10 +4421,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -3652,6 +4428,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -3761,6 +4541,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -3801,10 +4646,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -3812,6 +4653,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -3922,16 +4767,94 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 wallet: Client;
             } ? T["wallet"] : T) ? T_8 extends Client ? T_8["account"] : T_7["account"] : never : never, chainOverride, accountOverride>>;
         };
-    } : unknown : never : never) & ((T extends {
-        wallet: Client;
-    } ? T["wallet"] : T) extends infer T_8 ? T_8 extends (T extends {
-        wallet: Client;
-    } ? T["wallet"] : T) ? T_8 extends Client ? {
-        estimateGas: {
-            acknowledge: (args: readonly [`0x${string}`], ...parameters: import("viem").IsUndefined<T_8["account"]> extends infer T_9 ? T_9 extends import("viem").IsUndefined<T_8["account"]> ? T_9 extends true ? [options: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
+    } & {
+        createEventFilter: {
+            FileAcknowledged: <const args extends {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | undefined, strict extends boolean | undefined = undefined>(args: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | ({
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } extends infer T_8 ? T_8 extends {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } ? T_8 extends args ? Readonly<args> : never : never : never), options?: ({
+                fromBlock?: bigint | import("viem").BlockTag | undefined;
+                toBlock?: bigint | import("viem").BlockTag | undefined;
+            } & {
+                strict?: strict | undefined;
+            }) | undefined) => Promise<import("viem").CreateContractEventFilterReturnType<readonly [{
                 readonly inputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
             }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
@@ -3973,9 +4896,252 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
                         readonly internalType: "uint16";
                         readonly name: "pieceCidTail";
                         readonly type: "uint16";
+                    }, {
+                        readonly internalType: "bool";
+                        readonly name: "acked";
+                        readonly type: "bool";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.FileData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getSignatureData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s";
+                        readonly type: "bytes32";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.SignatureData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [];
+                readonly name: "manager";
+                readonly outputs: readonly [{
+                    readonly internalType: "contract IFSManager";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }, {
+                    readonly internalType: "address";
+                    readonly name: "recipient_";
+                    readonly type: "address";
+                }];
+                readonly name: "registerFile";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "signatureVisualHash_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint8";
+                    readonly name: "v_";
+                    readonly type: "uint8";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "r_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "s_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "submitSignature";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }], "FileAcknowledged", args, strict>>;
+            FileRegistered: <const args extends {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                sender?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | undefined, strict extends boolean | undefined = undefined>(args: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                sender?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | ({
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                sender?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } extends infer T_8 ? T_8 extends {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                sender?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } ? T_8 extends args ? Readonly<args> : never : never : never), options?: ({
+                fromBlock?: bigint | import("viem").BlockTag | undefined;
+                toBlock?: bigint | import("viem").BlockTag | undefined;
+            } & {
+                strict?: strict | undefined;
+            }) | undefined) => Promise<import("viem").CreateContractEventFilterReturnType<readonly [{
+                readonly inputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "constructor";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "acknowledge";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }];
+                readonly name: "cidIdentifier";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "pure";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getFileData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix";
+                        readonly type: "bytes32";
                     }, {
                         readonly internalType: "address";
                         readonly name: "sender";
@@ -3984,6 +5150,1905 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
+                    }, {
+                        readonly internalType: "bool";
+                        readonly name: "acked";
+                        readonly type: "bool";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.FileData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getSignatureData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s";
+                        readonly type: "bytes32";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.SignatureData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [];
+                readonly name: "manager";
+                readonly outputs: readonly [{
+                    readonly internalType: "contract IFSManager";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }, {
+                    readonly internalType: "address";
+                    readonly name: "recipient_";
+                    readonly type: "address";
+                }];
+                readonly name: "registerFile";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "signatureVisualHash_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint8";
+                    readonly name: "v_";
+                    readonly type: "uint8";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "r_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "s_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "submitSignature";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }], "FileRegistered", args, strict>>;
+            SignatureSubmitted: <const args extends {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                signer?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | undefined, strict extends boolean | undefined = undefined>(args: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                signer?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | ({
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                signer?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } extends infer T_8 ? T_8 extends {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                signer?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } ? T_8 extends args ? Readonly<args> : never : never : never), options?: ({
+                fromBlock?: bigint | import("viem").BlockTag | undefined;
+                toBlock?: bigint | import("viem").BlockTag | undefined;
+            } & {
+                strict?: strict | undefined;
+            }) | undefined) => Promise<import("viem").CreateContractEventFilterReturnType<readonly [{
+                readonly inputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "constructor";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "acknowledge";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }];
+                readonly name: "cidIdentifier";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "pure";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getFileData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
+                    }, {
+                        readonly internalType: "bool";
+                        readonly name: "acked";
+                        readonly type: "bool";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.FileData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getSignatureData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s";
+                        readonly type: "bytes32";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.SignatureData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [];
+                readonly name: "manager";
+                readonly outputs: readonly [{
+                    readonly internalType: "contract IFSManager";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }, {
+                    readonly internalType: "address";
+                    readonly name: "recipient_";
+                    readonly type: "address";
+                }];
+                readonly name: "registerFile";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "signatureVisualHash_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint8";
+                    readonly name: "v_";
+                    readonly type: "uint8";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "r_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "s_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "submitSignature";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }], "SignatureSubmitted", args, strict>>;
+        };
+        getEvents: {
+            FileAcknowledged: (args?: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | undefined, options?: {
+                strict?: boolean | undefined;
+                fromBlock?: bigint | import("viem").BlockTag | undefined;
+                toBlock?: bigint | import("viem").BlockTag | undefined;
+                blockHash?: `0x${string}` | undefined;
+            } | undefined) => Promise<import("viem").GetContractEventsReturnType<readonly [{
+                readonly inputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "constructor";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "acknowledge";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }];
+                readonly name: "cidIdentifier";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "pure";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getFileData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
+                    }, {
+                        readonly internalType: "bool";
+                        readonly name: "acked";
+                        readonly type: "bool";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.FileData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getSignatureData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s";
+                        readonly type: "bytes32";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.SignatureData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [];
+                readonly name: "manager";
+                readonly outputs: readonly [{
+                    readonly internalType: "contract IFSManager";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }, {
+                    readonly internalType: "address";
+                    readonly name: "recipient_";
+                    readonly type: "address";
+                }];
+                readonly name: "registerFile";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "signatureVisualHash_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint8";
+                    readonly name: "v_";
+                    readonly type: "uint8";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "r_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "s_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "submitSignature";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }], "FileAcknowledged">>;
+            FileRegistered: (args?: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                sender?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | undefined, options?: {
+                strict?: boolean | undefined;
+                fromBlock?: bigint | import("viem").BlockTag | undefined;
+                toBlock?: bigint | import("viem").BlockTag | undefined;
+                blockHash?: `0x${string}` | undefined;
+            } | undefined) => Promise<import("viem").GetContractEventsReturnType<readonly [{
+                readonly inputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "constructor";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "acknowledge";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }];
+                readonly name: "cidIdentifier";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "pure";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getFileData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
+                    }, {
+                        readonly internalType: "bool";
+                        readonly name: "acked";
+                        readonly type: "bool";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.FileData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getSignatureData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s";
+                        readonly type: "bytes32";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.SignatureData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [];
+                readonly name: "manager";
+                readonly outputs: readonly [{
+                    readonly internalType: "contract IFSManager";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }, {
+                    readonly internalType: "address";
+                    readonly name: "recipient_";
+                    readonly type: "address";
+                }];
+                readonly name: "registerFile";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "signatureVisualHash_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint8";
+                    readonly name: "v_";
+                    readonly type: "uint8";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "r_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "s_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "submitSignature";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }], "FileRegistered">>;
+            SignatureSubmitted: (args?: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                signer?: `0x${string}` | `0x${string}`[] | null | undefined;
+            } | undefined, options?: {
+                strict?: boolean | undefined;
+                fromBlock?: bigint | import("viem").BlockTag | undefined;
+                toBlock?: bigint | import("viem").BlockTag | undefined;
+                blockHash?: `0x${string}` | undefined;
+            } | undefined) => Promise<import("viem").GetContractEventsReturnType<readonly [{
+                readonly inputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "constructor";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "acknowledge";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }];
+                readonly name: "cidIdentifier";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "pure";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getFileData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
+                    }, {
+                        readonly internalType: "bool";
+                        readonly name: "acked";
+                        readonly type: "bool";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.FileData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getSignatureData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s";
+                        readonly type: "bytes32";
+                    }];
+                    readonly internalType: "struct FSFileRegistry.SignatureData";
+                    readonly name: "";
+                    readonly type: "tuple";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [];
+                readonly name: "manager";
+                readonly outputs: readonly [{
+                    readonly internalType: "contract IFSManager";
+                    readonly name: "";
+                    readonly type: "address";
+                }];
+                readonly stateMutability: "view";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }, {
+                    readonly internalType: "address";
+                    readonly name: "recipient_";
+                    readonly type: "address";
+                }];
+                readonly name: "registerFile";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "signatureVisualHash_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint8";
+                    readonly name: "v_";
+                    readonly type: "uint8";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "r_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "s_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "submitSignature";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }], "SignatureSubmitted">>;
+        };
+        watchEvent: {
+            FileAcknowledged: (args: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            }, options: {
+                batch?: boolean | undefined | undefined;
+                pollingInterval?: number | undefined | undefined;
+                strict?: boolean | undefined;
+                fromBlock?: bigint | undefined;
+                onError?: ((error: Error) => void) | undefined | undefined;
+                onLogs: import("viem").WatchContractEventOnLogsFn<readonly [{
+                    readonly inputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "constructor";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "FileAcknowledged";
+                    readonly type: "event";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "FileRegistered";
+                    readonly type: "event";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "SignatureSubmitted";
+                    readonly type: "event";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "acknowledge";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail_";
+                        readonly type: "uint16";
+                    }];
+                    readonly name: "cidIdentifier";
+                    readonly outputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "";
+                        readonly type: "bytes32";
+                    }];
+                    readonly stateMutability: "pure";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "getFileData";
+                    readonly outputs: readonly [{
+                        readonly components: readonly [{
+                            readonly internalType: "bytes32";
+                            readonly name: "pieceCidPrefix";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "address";
+                            readonly name: "sender";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "address";
+                            readonly name: "recipient";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "uint16";
+                            readonly name: "pieceCidTail";
+                            readonly type: "uint16";
+                        }, {
+                            readonly internalType: "bool";
+                            readonly name: "acked";
+                            readonly type: "bool";
+                        }];
+                        readonly internalType: "struct FSFileRegistry.FileData";
+                        readonly name: "";
+                        readonly type: "tuple";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "getSignatureData";
+                    readonly outputs: readonly [{
+                        readonly components: readonly [{
+                            readonly internalType: "address";
+                            readonly name: "signer";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "uint48";
+                            readonly name: "timestamp";
+                            readonly type: "uint48";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "signatureVisualHash";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "uint8";
+                            readonly name: "v";
+                            readonly type: "uint8";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "r";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "s";
+                            readonly type: "bytes32";
+                        }];
+                        readonly internalType: "struct FSFileRegistry.SignatureData";
+                        readonly name: "";
+                        readonly type: "tuple";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [];
+                    readonly name: "manager";
+                    readonly outputs: readonly [{
+                        readonly internalType: "contract IFSManager";
+                        readonly name: "";
+                        readonly type: "address";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail_";
+                        readonly type: "uint16";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient_";
+                        readonly type: "address";
+                    }];
+                    readonly name: "registerFile";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v_";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "submitSignature";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }], "FileAcknowledged", undefined>;
+                poll?: true | undefined | undefined;
+            }) => import("viem").WatchContractEventReturnType;
+            FileRegistered: (args: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                sender?: `0x${string}` | `0x${string}`[] | null | undefined;
+                recipient?: `0x${string}` | `0x${string}`[] | null | undefined;
+            }, options: {
+                batch?: boolean | undefined | undefined;
+                pollingInterval?: number | undefined | undefined;
+                strict?: boolean | undefined;
+                fromBlock?: bigint | undefined;
+                onError?: ((error: Error) => void) | undefined | undefined;
+                onLogs: import("viem").WatchContractEventOnLogsFn<readonly [{
+                    readonly inputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "constructor";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "FileAcknowledged";
+                    readonly type: "event";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "FileRegistered";
+                    readonly type: "event";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "SignatureSubmitted";
+                    readonly type: "event";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "acknowledge";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail_";
+                        readonly type: "uint16";
+                    }];
+                    readonly name: "cidIdentifier";
+                    readonly outputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "";
+                        readonly type: "bytes32";
+                    }];
+                    readonly stateMutability: "pure";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "getFileData";
+                    readonly outputs: readonly [{
+                        readonly components: readonly [{
+                            readonly internalType: "bytes32";
+                            readonly name: "pieceCidPrefix";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "address";
+                            readonly name: "sender";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "address";
+                            readonly name: "recipient";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "uint16";
+                            readonly name: "pieceCidTail";
+                            readonly type: "uint16";
+                        }, {
+                            readonly internalType: "bool";
+                            readonly name: "acked";
+                            readonly type: "bool";
+                        }];
+                        readonly internalType: "struct FSFileRegistry.FileData";
+                        readonly name: "";
+                        readonly type: "tuple";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "getSignatureData";
+                    readonly outputs: readonly [{
+                        readonly components: readonly [{
+                            readonly internalType: "address";
+                            readonly name: "signer";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "uint48";
+                            readonly name: "timestamp";
+                            readonly type: "uint48";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "signatureVisualHash";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "uint8";
+                            readonly name: "v";
+                            readonly type: "uint8";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "r";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "s";
+                            readonly type: "bytes32";
+                        }];
+                        readonly internalType: "struct FSFileRegistry.SignatureData";
+                        readonly name: "";
+                        readonly type: "tuple";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [];
+                    readonly name: "manager";
+                    readonly outputs: readonly [{
+                        readonly internalType: "contract IFSManager";
+                        readonly name: "";
+                        readonly type: "address";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail_";
+                        readonly type: "uint16";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient_";
+                        readonly type: "address";
+                    }];
+                    readonly name: "registerFile";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v_";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "submitSignature";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }], "FileRegistered", undefined>;
+                poll?: true | undefined | undefined;
+            }) => import("viem").WatchContractEventReturnType;
+            SignatureSubmitted: (args: {
+                cidIdentifier?: `0x${string}` | `0x${string}`[] | null | undefined;
+                signer?: `0x${string}` | `0x${string}`[] | null | undefined;
+            }, options: {
+                batch?: boolean | undefined | undefined;
+                pollingInterval?: number | undefined | undefined;
+                strict?: boolean | undefined;
+                fromBlock?: bigint | undefined;
+                onError?: ((error: Error) => void) | undefined | undefined;
+                onLogs: import("viem").WatchContractEventOnLogsFn<readonly [{
+                    readonly inputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "constructor";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "FileAcknowledged";
+                    readonly type: "event";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "FileRegistered";
+                    readonly type: "event";
+                }, {
+                    readonly anonymous: false;
+                    readonly inputs: readonly [{
+                        readonly indexed: true;
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly indexed: true;
+                        readonly internalType: "address";
+                        readonly name: "signer";
+                        readonly type: "address";
+                    }, {
+                        readonly indexed: false;
+                        readonly internalType: "uint48";
+                        readonly name: "timestamp";
+                        readonly type: "uint48";
+                    }];
+                    readonly name: "SignatureSubmitted";
+                    readonly type: "event";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "acknowledge";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail_";
+                        readonly type: "uint16";
+                    }];
+                    readonly name: "cidIdentifier";
+                    readonly outputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "";
+                        readonly type: "bytes32";
+                    }];
+                    readonly stateMutability: "pure";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "getFileData";
+                    readonly outputs: readonly [{
+                        readonly components: readonly [{
+                            readonly internalType: "bytes32";
+                            readonly name: "pieceCidPrefix";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "address";
+                            readonly name: "sender";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "address";
+                            readonly name: "recipient";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "uint16";
+                            readonly name: "pieceCidTail";
+                            readonly type: "uint16";
+                        }, {
+                            readonly internalType: "bool";
+                            readonly name: "acked";
+                            readonly type: "bool";
+                        }];
+                        readonly internalType: "struct FSFileRegistry.FileData";
+                        readonly name: "";
+                        readonly type: "tuple";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "getSignatureData";
+                    readonly outputs: readonly [{
+                        readonly components: readonly [{
+                            readonly internalType: "address";
+                            readonly name: "signer";
+                            readonly type: "address";
+                        }, {
+                            readonly internalType: "uint48";
+                            readonly name: "timestamp";
+                            readonly type: "uint48";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "signatureVisualHash";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "uint8";
+                            readonly name: "v";
+                            readonly type: "uint8";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "r";
+                            readonly type: "bytes32";
+                        }, {
+                            readonly internalType: "bytes32";
+                            readonly name: "s";
+                            readonly type: "bytes32";
+                        }];
+                        readonly internalType: "struct FSFileRegistry.SignatureData";
+                        readonly name: "";
+                        readonly type: "tuple";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [];
+                    readonly name: "manager";
+                    readonly outputs: readonly [{
+                        readonly internalType: "contract IFSManager";
+                        readonly name: "";
+                        readonly type: "address";
+                    }];
+                    readonly stateMutability: "view";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail_";
+                        readonly type: "uint16";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient_";
+                        readonly type: "address";
+                    }];
+                    readonly name: "registerFile";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }, {
+                    readonly inputs: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "cidIdentifier_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "signatureVisualHash_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "uint8";
+                        readonly name: "v_";
+                        readonly type: "uint8";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "r_";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "s_";
+                        readonly type: "bytes32";
+                    }];
+                    readonly name: "submitSignature";
+                    readonly outputs: readonly [];
+                    readonly stateMutability: "nonpayable";
+                    readonly type: "function";
+                }], "SignatureSubmitted", undefined>;
+                poll?: true | undefined | undefined;
+            }) => import("viem").WatchContractEventReturnType;
+        };
+    } : unknown : never : never) & ((T extends {
+        wallet: Client;
+    } ? T["wallet"] : T) extends infer T_8 ? T_8 extends (T extends {
+        wallet: Client;
+    } ? T["wallet"] : T) ? T_8 extends Client ? {
+        estimateGas: {
+            acknowledge: (args: readonly [`0x${string}`], ...parameters: import("viem").IsUndefined<T_8["account"]> extends infer T_9 ? T_9 extends import("viem").IsUndefined<T_8["account"]> ? T_9 extends true ? [options: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
+                readonly inputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "constructor";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "acknowledge";
+                readonly outputs: readonly [];
+                readonly stateMutability: "nonpayable";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "pieceCidPrefix_";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail_";
+                    readonly type: "uint16";
+                }];
+                readonly name: "cidIdentifier";
+                readonly outputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "";
+                    readonly type: "bytes32";
+                }];
+                readonly stateMutability: "pure";
+                readonly type: "function";
+            }, {
+                readonly inputs: readonly [{
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier_";
+                    readonly type: "bytes32";
+                }];
+                readonly name: "getFileData";
+                readonly outputs: readonly [{
+                    readonly components: readonly [{
+                        readonly internalType: "bytes32";
+                        readonly name: "pieceCidPrefix";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "sender";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "address";
+                        readonly name: "recipient";
+                        readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -4093,6 +7158,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -4133,10 +7263,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -4144,6 +7270,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -4254,6 +7384,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -4294,10 +7489,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -4305,6 +7496,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -4414,6 +7609,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -4454,10 +7714,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -4465,6 +7721,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -4575,6 +7835,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -4615,10 +7940,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -4626,6 +7947,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -4735,6 +8060,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -4775,10 +8165,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -4786,6 +8172,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -4898,6 +8288,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -4938,10 +8393,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -4949,6 +8400,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -5059,6 +8514,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -5099,10 +8619,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -5110,6 +8626,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -5220,6 +8740,71 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly stateMutability: "nonpayable";
                 readonly type: "constructor";
             }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileAcknowledged";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "sender";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "recipient";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "FileRegistered";
+                readonly type: "event";
+            }, {
+                readonly anonymous: false;
+                readonly inputs: readonly [{
+                    readonly indexed: true;
+                    readonly internalType: "bytes32";
+                    readonly name: "cidIdentifier";
+                    readonly type: "bytes32";
+                }, {
+                    readonly indexed: true;
+                    readonly internalType: "address";
+                    readonly name: "signer";
+                    readonly type: "address";
+                }, {
+                    readonly indexed: false;
+                    readonly internalType: "uint48";
+                    readonly name: "timestamp";
+                    readonly type: "uint48";
+                }];
+                readonly name: "SignatureSubmitted";
+                readonly type: "event";
+            }, {
                 readonly inputs: readonly [{
                     readonly internalType: "bytes32";
                     readonly name: "cidIdentifier_";
@@ -5260,10 +8845,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "pieceCidPrefix";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "uint16";
-                        readonly name: "pieceCidTail";
-                        readonly type: "uint16";
-                    }, {
                         readonly internalType: "address";
                         readonly name: "sender";
                         readonly type: "address";
@@ -5271,6 +8852,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly internalType: "address";
                         readonly name: "recipient";
                         readonly type: "address";
+                    }, {
+                        readonly internalType: "uint16";
+                        readonly name: "pieceCidTail";
+                        readonly type: "uint16";
                     }, {
                         readonly internalType: "bool";
                         readonly name: "acked";
@@ -5378,11 +8963,76 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
             }], "submitSignature", readonly [`0x${string}`, `0x${string}`, number, `0x${string}`, `0x${string}`], T_8["chain"], T_8["account"], chainOverride>, "address" | "abi" | "args" | "functionName"> extends infer T_9 ? { [K_4 in keyof T_9]: T_9[K_4]; } : never>(args: readonly [`0x${string}`, `0x${string}`, number, `0x${string}`, `0x${string}`], ...parameters: (import("viem").IsUndefined<T_8["account"]> extends infer T_10 ? T_10 extends import("viem").IsUndefined<T_8["account"]> ? T_10 extends true ? true : import("viem").IsUndefined<T_8["chain"]> extends infer T_11 ? T_11 extends import("viem").IsUndefined<T_8["chain"]> ? T_11 extends true ? true : false : never : never : never : never) extends infer T_12 ? T_12 extends (import("viem").IsUndefined<T_8["account"]> extends infer T_13 ? T_13 extends import("viem").IsUndefined<T_8["account"]> ? T_13 extends true ? true : import("viem").IsUndefined<T_8["chain"]> extends infer T_14 ? T_14 extends import("viem").IsUndefined<T_8["chain"]> ? T_14 extends true ? true : false : never : never : never : never) ? T_12 extends true ? [options: options] : [options?: options | undefined] : never : never) => Promise<import("viem").WriteContractReturnType>;
         };
     } : unknown : never : never) extends infer T_6 ? { [K_3 in keyof T_6]: T_6[K_3]; } : never) & {
-        address: "0x75a88cB307fd9b77CE237Af23F2421BeC6047e09";
+        address: "0x4B42186007b88F9932E424210Eee4ec7b51085fC";
         abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
             readonly type: "constructor";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "bytes32";
+                readonly name: "cidIdentifier";
+                readonly type: "bytes32";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "recipient";
+                readonly type: "address";
+            }, {
+                readonly indexed: false;
+                readonly internalType: "uint48";
+                readonly name: "timestamp";
+                readonly type: "uint48";
+            }];
+            readonly name: "FileAcknowledged";
+            readonly type: "event";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "bytes32";
+                readonly name: "cidIdentifier";
+                readonly type: "bytes32";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "sender";
+                readonly type: "address";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "recipient";
+                readonly type: "address";
+            }, {
+                readonly indexed: false;
+                readonly internalType: "uint48";
+                readonly name: "timestamp";
+                readonly type: "uint48";
+            }];
+            readonly name: "FileRegistered";
+            readonly type: "event";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "bytes32";
+                readonly name: "cidIdentifier";
+                readonly type: "bytes32";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "signer";
+                readonly type: "address";
+            }, {
+                readonly indexed: false;
+                readonly internalType: "uint48";
+                readonly name: "timestamp";
+                readonly type: "uint48";
+            }];
+            readonly name: "SignatureSubmitted";
+            readonly type: "event";
         }, {
             readonly inputs: readonly [{
                 readonly internalType: "bytes32";
@@ -5424,10 +9074,6 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "pieceCidPrefix";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "uint16";
-                    readonly name: "pieceCidTail";
-                    readonly type: "uint16";
-                }, {
                     readonly internalType: "address";
                     readonly name: "sender";
                     readonly type: "address";
@@ -5435,6 +9081,10 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly internalType: "address";
                     readonly name: "recipient";
                     readonly type: "address";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail";
+                    readonly type: "uint16";
                 }, {
                     readonly internalType: "bool";
                     readonly name: "acked";
@@ -5589,9 +9239,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -5656,9 +9314,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -5719,9 +9385,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -5786,9 +9460,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -5849,9 +9531,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -5916,9 +9606,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -5936,7 +9634,7 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly outputs: readonly [];
                 readonly stateMutability: "nonpayable";
                 readonly type: "function";
-            }], "keygenData", readonly [`0x${string}`]>, "address" | "abi" | "args" | "functionName">> | undefined) => Promise<readonly [`0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`]>;
+            }], "keygenData", readonly [`0x${string}`]>, "address" | "abi" | "args" | "functionName">> | undefined) => Promise<readonly [`0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`, `0x${string}`]>;
             keygenDataVersion: (args: readonly [`0x${string}`], options?: import("viem").Prettify<import("viem").UnionOmit<import("viem").ReadContractParameters<readonly [{
                 readonly inputs: readonly [];
                 readonly stateMutability: "nonpayable";
@@ -5979,9 +9677,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -6046,9 +9752,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -6109,9 +9823,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -6176,9 +9898,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -6205,7 +9935,9 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], options: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
                 readonly inputs: readonly [];
@@ -6249,9 +9981,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -6316,9 +10056,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -6341,7 +10089,9 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], T_11["chain"]>, "address" | "abi" | "args" | "functionName">>) => Promise<import("viem").EstimateContractGasReturnType>;
         };
@@ -6351,7 +10101,9 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], options?: Omit<import("viem").SimulateContractParameters<readonly [{
                 readonly inputs: readonly [];
@@ -6395,9 +10147,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -6462,9 +10222,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -6487,7 +10255,9 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], T_11["chain"], chainOverride, accountOverride>, "address" | "abi" | "args" | "functionName"> | undefined) => Promise<import("viem").SimulateContractReturnType<readonly [{
                 readonly inputs: readonly [];
@@ -6531,9 +10301,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -6598,9 +10376,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -6623,7 +10409,9 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], T_11["chain"], (T extends {
                 wallet: Client;
@@ -6642,7 +10430,9 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], ...parameters: import("viem").IsUndefined<T_12["account"]> extends infer T_13 ? T_13 extends import("viem").IsUndefined<T_12["account"]> ? T_13 extends true ? [options: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
                 readonly inputs: readonly [];
@@ -6686,9 +10476,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -6753,9 +10551,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -6778,7 +10584,9 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], T_12["chain"]>, "address" | "abi" | "args" | "functionName">>] : [options?: import("viem").Prettify<import("viem").UnionOmit<import("viem").EstimateContractGasParameters<readonly [{
                 readonly inputs: readonly [];
@@ -6822,9 +10630,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -6889,9 +10705,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -6914,7 +10738,9 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], T_12["chain"]>, "address" | "abi" | "args" | "functionName">> | undefined] : never : never) => Promise<import("viem").EstimateContractGasReturnType>;
         };
@@ -6961,9 +10787,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";
@@ -7028,9 +10862,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                         readonly name: "nonce";
                         readonly type: "bytes32";
                     }, {
-                        readonly internalType: "bytes";
-                        readonly name: "seed";
-                        readonly type: "bytes";
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_head";
+                        readonly type: "bytes20";
+                    }, {
+                        readonly internalType: "bytes32";
+                        readonly name: "seed_word";
+                        readonly type: "bytes32";
+                    }, {
+                        readonly internalType: "bytes20";
+                        readonly name: "seed_tail";
+                        readonly type: "bytes20";
                     }, {
                         readonly internalType: "bytes32";
                         readonly name: "commitment_pin";
@@ -7053,19 +10895,23 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], T_12["chain"], T_12["account"], chainOverride>, "address" | "abi" | "args" | "functionName"> extends infer T_13 ? { [K_6 in keyof T_13]: T_13[K_6]; } : never>(args: readonly [{
                 salt_auth: `0x${string}`;
                 salt_wrap: `0x${string}`;
                 salt_pin: `0x${string}`;
                 nonce: `0x${string}`;
-                seed: `0x${string}`;
+                seed_head: `0x${string}`;
+                seed_word: `0x${string}`;
+                seed_tail: `0x${string}`;
                 commitment_pin: `0x${string}`;
             }, `0x${string}`], ...parameters: (import("viem").IsUndefined<T_12["account"]> extends infer T_14 ? T_14 extends import("viem").IsUndefined<T_12["account"]> ? T_14 extends true ? true : import("viem").IsUndefined<T_12["chain"]> extends infer T_15 ? T_15 extends import("viem").IsUndefined<T_12["chain"]> ? T_15 extends true ? true : false : never : never : never : never) extends infer T_16 ? T_16 extends (import("viem").IsUndefined<T_12["account"]> extends infer T_17 ? T_17 extends import("viem").IsUndefined<T_12["account"]> ? T_17 extends true ? true : import("viem").IsUndefined<T_12["chain"]> extends infer T_18 ? T_18 extends import("viem").IsUndefined<T_12["chain"]> ? T_18 extends true ? true : false : never : never : never : never) ? T_16 extends true ? [options: options] : [options?: options | undefined] : never : never) => Promise<import("viem").WriteContractReturnType>;
         };
     } : unknown : never : never) extends infer T_10 ? { [K_5 in keyof T_10]: T_10[K_5]; } : never) & {
-        address: "0x713bBdd6f9c4111df1fFB37D147dBEf5eB56a66F";
+        address: "0x1B39175610Ac267BC6009cfF34F013EbC838E126";
         abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -7108,9 +10954,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                 readonly name: "nonce";
                 readonly type: "bytes32";
             }, {
-                readonly internalType: "bytes";
-                readonly name: "seed";
-                readonly type: "bytes";
+                readonly internalType: "bytes20";
+                readonly name: "seed_head";
+                readonly type: "bytes20";
+            }, {
+                readonly internalType: "bytes32";
+                readonly name: "seed_word";
+                readonly type: "bytes32";
+            }, {
+                readonly internalType: "bytes20";
+                readonly name: "seed_tail";
+                readonly type: "bytes20";
             }, {
                 readonly internalType: "bytes32";
                 readonly name: "commitment_pin";
@@ -7175,9 +11029,17 @@ export declare function getContracts<T extends Client | WalletClient>(client: T)
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";

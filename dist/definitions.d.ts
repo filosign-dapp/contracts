@@ -1,6 +1,6 @@
 export declare const definitions: {
     readonly FSManager: {
-        readonly address: "0x7b4809b5335bf3ea8eb65a4da0f0ff7190f8afed";
+        readonly address: "0x88a04f015006f4dc3df73b4a5538d81d455d3b4d";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -96,11 +96,76 @@ export declare const definitions: {
         }];
     };
     readonly FSFileRegistry: {
-        readonly address: "0x75a88cB307fd9b77CE237Af23F2421BeC6047e09";
+        readonly address: "0x4B42186007b88F9932E424210Eee4ec7b51085fC";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
             readonly type: "constructor";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "bytes32";
+                readonly name: "cidIdentifier";
+                readonly type: "bytes32";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "recipient";
+                readonly type: "address";
+            }, {
+                readonly indexed: false;
+                readonly internalType: "uint48";
+                readonly name: "timestamp";
+                readonly type: "uint48";
+            }];
+            readonly name: "FileAcknowledged";
+            readonly type: "event";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "bytes32";
+                readonly name: "cidIdentifier";
+                readonly type: "bytes32";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "sender";
+                readonly type: "address";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "recipient";
+                readonly type: "address";
+            }, {
+                readonly indexed: false;
+                readonly internalType: "uint48";
+                readonly name: "timestamp";
+                readonly type: "uint48";
+            }];
+            readonly name: "FileRegistered";
+            readonly type: "event";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "bytes32";
+                readonly name: "cidIdentifier";
+                readonly type: "bytes32";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "signer";
+                readonly type: "address";
+            }, {
+                readonly indexed: false;
+                readonly internalType: "uint48";
+                readonly name: "timestamp";
+                readonly type: "uint48";
+            }];
+            readonly name: "SignatureSubmitted";
+            readonly type: "event";
         }, {
             readonly inputs: readonly [{
                 readonly internalType: "bytes32";
@@ -142,10 +207,6 @@ export declare const definitions: {
                     readonly name: "pieceCidPrefix";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "uint16";
-                    readonly name: "pieceCidTail";
-                    readonly type: "uint16";
-                }, {
                     readonly internalType: "address";
                     readonly name: "sender";
                     readonly type: "address";
@@ -153,6 +214,10 @@ export declare const definitions: {
                     readonly internalType: "address";
                     readonly name: "recipient";
                     readonly type: "address";
+                }, {
+                    readonly internalType: "uint16";
+                    readonly name: "pieceCidTail";
+                    readonly type: "uint16";
                 }, {
                     readonly internalType: "bool";
                     readonly name: "acked";
@@ -260,7 +325,7 @@ export declare const definitions: {
         }];
     };
     readonly FSKeyRegistry: {
-        readonly address: "0x713bBdd6f9c4111df1fFB37D147dBEf5eB56a66F";
+        readonly address: "0x1B39175610Ac267BC6009cfF34F013EbC838E126";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -303,9 +368,17 @@ export declare const definitions: {
                 readonly name: "nonce";
                 readonly type: "bytes32";
             }, {
-                readonly internalType: "bytes";
-                readonly name: "seed";
-                readonly type: "bytes";
+                readonly internalType: "bytes20";
+                readonly name: "seed_head";
+                readonly type: "bytes20";
+            }, {
+                readonly internalType: "bytes32";
+                readonly name: "seed_word";
+                readonly type: "bytes32";
+            }, {
+                readonly internalType: "bytes20";
+                readonly name: "seed_tail";
+                readonly type: "bytes20";
             }, {
                 readonly internalType: "bytes32";
                 readonly name: "commitment_pin";
@@ -370,9 +443,17 @@ export declare const definitions: {
                     readonly name: "nonce";
                     readonly type: "bytes32";
                 }, {
-                    readonly internalType: "bytes";
-                    readonly name: "seed";
-                    readonly type: "bytes";
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_head";
+                    readonly type: "bytes20";
+                }, {
+                    readonly internalType: "bytes32";
+                    readonly name: "seed_word";
+                    readonly type: "bytes32";
+                }, {
+                    readonly internalType: "bytes20";
+                    readonly name: "seed_tail";
+                    readonly type: "bytes20";
                 }, {
                     readonly internalType: "bytes32";
                     readonly name: "commitment_pin";

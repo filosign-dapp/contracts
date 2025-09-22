@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.definitions = void 0;
 exports.definitions = {
     "FSManager": {
-        "address": "0x7b4809b5335bf3ea8eb65a4da0f0ff7190f8afed",
+        "address": "0x88a04f015006f4dc3df73b4a5538d81d455d3b4d",
         "abi": [
             {
                 "inputs": [],
@@ -128,12 +128,93 @@ exports.definitions = {
         ]
     },
     "FSFileRegistry": {
-        "address": "0x75a88cB307fd9b77CE237Af23F2421BeC6047e09",
+        "address": "0x4B42186007b88F9932E424210Eee4ec7b51085fC",
         "abi": [
             {
                 "inputs": [],
                 "stateMutability": "nonpayable",
                 "type": "constructor"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    {
+                        "indexed": true,
+                        "internalType": "bytes32",
+                        "name": "cidIdentifier",
+                        "type": "bytes32"
+                    },
+                    {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": false,
+                        "internalType": "uint48",
+                        "name": "timestamp",
+                        "type": "uint48"
+                    }
+                ],
+                "name": "FileAcknowledged",
+                "type": "event"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    {
+                        "indexed": true,
+                        "internalType": "bytes32",
+                        "name": "cidIdentifier",
+                        "type": "bytes32"
+                    },
+                    {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "sender",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": false,
+                        "internalType": "uint48",
+                        "name": "timestamp",
+                        "type": "uint48"
+                    }
+                ],
+                "name": "FileRegistered",
+                "type": "event"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    {
+                        "indexed": true,
+                        "internalType": "bytes32",
+                        "name": "cidIdentifier",
+                        "type": "bytes32"
+                    },
+                    {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "signer",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": false,
+                        "internalType": "uint48",
+                        "name": "timestamp",
+                        "type": "uint48"
+                    }
+                ],
+                "name": "SignatureSubmitted",
+                "type": "event"
             },
             {
                 "inputs": [
@@ -190,11 +271,6 @@ exports.definitions = {
                                 "type": "bytes32"
                             },
                             {
-                                "internalType": "uint16",
-                                "name": "pieceCidTail",
-                                "type": "uint16"
-                            },
-                            {
                                 "internalType": "address",
                                 "name": "sender",
                                 "type": "address"
@@ -203,6 +279,11 @@ exports.definitions = {
                                 "internalType": "address",
                                 "name": "recipient",
                                 "type": "address"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "pieceCidTail",
+                                "type": "uint16"
                             },
                             {
                                 "internalType": "bool",
@@ -341,7 +422,7 @@ exports.definitions = {
         ]
     },
     "FSKeyRegistry": {
-        "address": "0x713bBdd6f9c4111df1fFB37D147dBEf5eB56a66F",
+        "address": "0x1B39175610Ac267BC6009cfF34F013EbC838E126",
         "abi": [
             {
                 "inputs": [],
@@ -398,9 +479,19 @@ exports.definitions = {
                         "type": "bytes32"
                     },
                     {
-                        "internalType": "bytes",
-                        "name": "seed",
-                        "type": "bytes"
+                        "internalType": "bytes20",
+                        "name": "seed_head",
+                        "type": "bytes20"
+                    },
+                    {
+                        "internalType": "bytes32",
+                        "name": "seed_word",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "bytes20",
+                        "name": "seed_tail",
+                        "type": "bytes20"
                     },
                     {
                         "internalType": "bytes32",
@@ -487,9 +578,19 @@ exports.definitions = {
                                 "type": "bytes32"
                             },
                             {
-                                "internalType": "bytes",
-                                "name": "seed",
-                                "type": "bytes"
+                                "internalType": "bytes20",
+                                "name": "seed_head",
+                                "type": "bytes20"
+                            },
+                            {
+                                "internalType": "bytes32",
+                                "name": "seed_word",
+                                "type": "bytes32"
+                            },
+                            {
+                                "internalType": "bytes20",
+                                "name": "seed_tail",
+                                "type": "bytes20"
                             },
                             {
                                 "internalType": "bytes32",
