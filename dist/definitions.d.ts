@@ -1,10 +1,40 @@
 export declare const definitions: {
     readonly FSManager: {
-        readonly address: "0x88a04f015006f4dc3df73b4a5538d81d455d3b4d";
+        readonly address: "0x481cf005ac36a0f5c3f5f37aac187cfb1fbf15b5";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
             readonly type: "constructor";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "recipient";
+                readonly type: "address";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "sender";
+                readonly type: "address";
+            }];
+            readonly name: "SenderApproved";
+            readonly type: "event";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "recipient";
+                readonly type: "address";
+            }, {
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "sender";
+                readonly type: "address";
+            }];
+            readonly name: "SenderRevoked";
+            readonly type: "event";
         }, {
             readonly inputs: readonly [{
                 readonly internalType: "address";
@@ -64,6 +94,16 @@ export declare const definitions: {
             readonly stateMutability: "view";
             readonly type: "function";
         }, {
+            readonly inputs: readonly [{
+                readonly internalType: "address";
+                readonly name: "sender_";
+                readonly type: "address";
+            }];
+            readonly name: "revokeSender";
+            readonly outputs: readonly [];
+            readonly stateMutability: "nonpayable";
+            readonly type: "function";
+        }, {
             readonly inputs: readonly [];
             readonly name: "server";
             readonly outputs: readonly [{
@@ -96,11 +136,48 @@ export declare const definitions: {
         }];
     };
     readonly FSFileRegistry: {
-        readonly address: "0x4B42186007b88F9932E424210Eee4ec7b51085fC";
+        readonly address: "0xF29acC24aa40270816E13EFa61bD265c99aaB1A2";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
             readonly type: "constructor";
+        }, {
+            readonly inputs: readonly [];
+            readonly name: "ECDSAInvalidSignature";
+            readonly type: "error";
+        }, {
+            readonly inputs: readonly [{
+                readonly internalType: "uint256";
+                readonly name: "length";
+                readonly type: "uint256";
+            }];
+            readonly name: "ECDSAInvalidSignatureLength";
+            readonly type: "error";
+        }, {
+            readonly inputs: readonly [{
+                readonly internalType: "bytes32";
+                readonly name: "s";
+                readonly type: "bytes32";
+            }];
+            readonly name: "ECDSAInvalidSignatureS";
+            readonly type: "error";
+        }, {
+            readonly inputs: readonly [];
+            readonly name: "InvalidShortString";
+            readonly type: "error";
+        }, {
+            readonly inputs: readonly [{
+                readonly internalType: "string";
+                readonly name: "str";
+                readonly type: "string";
+            }];
+            readonly name: "StringTooLong";
+            readonly type: "error";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [];
+            readonly name: "EIP712DomainChanged";
+            readonly type: "event";
         }, {
             readonly anonymous: false;
             readonly inputs: readonly [{
@@ -193,6 +270,40 @@ export declare const definitions: {
                 readonly type: "bytes32";
             }];
             readonly stateMutability: "pure";
+            readonly type: "function";
+        }, {
+            readonly inputs: readonly [];
+            readonly name: "eip712Domain";
+            readonly outputs: readonly [{
+                readonly internalType: "bytes1";
+                readonly name: "fields";
+                readonly type: "bytes1";
+            }, {
+                readonly internalType: "string";
+                readonly name: "name";
+                readonly type: "string";
+            }, {
+                readonly internalType: "string";
+                readonly name: "version";
+                readonly type: "string";
+            }, {
+                readonly internalType: "uint256";
+                readonly name: "chainId";
+                readonly type: "uint256";
+            }, {
+                readonly internalType: "address";
+                readonly name: "verifyingContract";
+                readonly type: "address";
+            }, {
+                readonly internalType: "bytes32";
+                readonly name: "salt";
+                readonly type: "bytes32";
+            }, {
+                readonly internalType: "uint256[]";
+                readonly name: "extensions";
+                readonly type: "uint256[]";
+            }];
+            readonly stateMutability: "view";
             readonly type: "function";
         }, {
             readonly inputs: readonly [{
@@ -325,11 +436,31 @@ export declare const definitions: {
         }];
     };
     readonly FSKeyRegistry: {
-        readonly address: "0x1B39175610Ac267BC6009cfF34F013EbC838E126";
+        readonly address: "0xE9A3E247D5c2eAEa1dbf485e0c8C3a910fA4379f";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
             readonly type: "constructor";
+        }, {
+            readonly anonymous: false;
+            readonly inputs: readonly [{
+                readonly indexed: true;
+                readonly internalType: "address";
+                readonly name: "user";
+                readonly type: "address";
+            }, {
+                readonly indexed: false;
+                readonly internalType: "bytes32";
+                readonly name: "publicKey";
+                readonly type: "bytes32";
+            }, {
+                readonly indexed: false;
+                readonly internalType: "uint8";
+                readonly name: "version";
+                readonly type: "uint8";
+            }];
+            readonly name: "KeygenDataRegistered";
+            readonly type: "event";
         }, {
             readonly inputs: readonly [{
                 readonly internalType: "address";
