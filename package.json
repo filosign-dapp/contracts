@@ -17,7 +17,7 @@
   "scripts": {
     "localnode": "hardhat node",
     "compile": "bun gen:interfaces; bun --bun hardhat compile",
-    "build": "bun compile; tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json",
     "pretest": "bun compile",
     "gen:interfaces": "bun run scripts/generateInterfaces.ts",
     "migrate": "bun compile; bunx --bun hardhat run scripts/deploy.ts --network filecoinCalibration; bun run build"
