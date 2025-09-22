@@ -10,6 +10,9 @@ interface IFSManager {
     function server() external view returns (address);
     function version() external view returns (uint8);
     function approvedSenders(address key, address key1) external view returns (bool);
+    event SenderApproved();
+    event SenderRevoked();
     function setActiveVersion(uint8 version_) external;
     function approveSender(address sender_) external;
+    function revokeSender(address sender_) external;
 }
