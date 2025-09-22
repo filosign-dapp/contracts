@@ -12,7 +12,11 @@ import {
   parseSignature,
 } from "viem";
 import { describe, it } from "bun:test";
-import { computeCidIdentifier, parsePieceCid } from "../services/utils";
+import {
+  computeCidIdentifier,
+  parsePieceCid,
+  signFileSignature,
+} from "../services/utils";
 
 const samplePieceCid =
   "bafkzcibcbub2cd46abwvhoohwhmmjugyjibda32vn4a4qlcrv5dc76s24s67qai";
@@ -211,18 +215,12 @@ describe("FSFileRegistry", () => {
     });
     await admin.waitForTransactionReceipt({ hash: ackTxHash });
 
-    const messageHash = keccak256(
-      encodePacked(
-        ["bytes32", "uint16", "bytes32"],
-        [pieceCidPrefix, pieceCidTail, signatureVisualHash]
-      )
-    );
-
-    const signature = await recipient.signMessage({
-      message: { raw: messageHash },
+    const { r, s, v } = await signFileSignature({
+      walletClient: recipient,
+      contractAddress: fileRegistry.address,
+      pieceCid: samplePieceCid,
+      signatureVisualHash,
     });
-
-    const { r, s, v } = parseSignature(signature);
 
     const submitSigTxHash = await fileRegistry.write.submitSignature(
       [cidIdentifier, signatureVisualHash, Number(v), r, s],
@@ -347,18 +345,12 @@ describe("FSFileRegistry", () => {
     });
     await admin.waitForTransactionReceipt({ hash: ackTxHash });
 
-    const messageHash = keccak256(
-      encodePacked(
-        ["bytes32", "uint16", "bytes32"],
-        [pieceCidPrefix, pieceCidTail, signatureVisualHash]
-      )
-    );
-
-    const signature = await recipient.signMessage({
-      message: { raw: messageHash },
+    const { r, s, v } = await signFileSignature({
+      walletClient: recipient,
+      contractAddress: fileRegistry.address,
+      pieceCid: samplePieceCid,
+      signatureVisualHash,
     });
-
-    const { r, s, v } = parseSignature(signature);
 
     const submitSigTxHash = await fileRegistry.write.submitSignature(
       [cidIdentifier, signatureVisualHash, Number(v), r, s],
@@ -374,7 +366,7 @@ describe("FSFileRegistry", () => {
     ).to.be.rejectedWith("Signature already submitted");
   });
 
-  it.skip("fails with invalid signature", async () => {
+  it("fails with invalid signature", async () => {
     const { fileRegistry, sender, recipient, admin } = await loadFixture(
       setupFixture
     );
