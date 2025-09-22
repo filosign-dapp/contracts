@@ -4,6 +4,8 @@
     "": {
       "name": "contracts",
       "dependencies": {
+        "multiformats": "^13.4.1",
+        "cid": "multiformats/cid",
         "viem": "^2.37.5",
       },
       "devDependencies": {
@@ -22,11 +24,10 @@
         "@types/node": "^24.5.2",
         "chai": "^4.5.0",
         "ethers": "^6.15.0",
-        "filosign-crypto-utils": "^0.2.10",
+        "filosign-crypto-utils": "^0.2.12",
         "glob": "^11.0.3",
         "hardhat": "^2.26.3",
         "hardhat-gas-reporter": "^2.3.0",
-        "multiformats": "^13.4.1",
         "solidity-coverage": "^0.8.16",
         "solidity-parser-antlr": "^0.4.11",
         "ts-node": "^10.9.2",
@@ -333,6 +334,8 @@
 
     "ci-info": ["ci-info@2.0.0", "", {}, "sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ=="],
 
+    "cid": ["cid@github:multiformats/cid#edb1c52", {}, "multiformats-cid-edb1c52"],
+
     "cipher-base": ["cipher-base@1.0.6", "", { "dependencies": { "inherits": "^2.0.4", "safe-buffer": "^5.2.1" } }, "sha512-3Ek9H3X6pj5TgenXYtNWdaBon1tgYCaebd+XPg0keyjEbEfkD4KkmAxkQ/i1vYvxdcT5nscLBfq9VJRmCBcFSw=="],
 
     "clean-stack": ["clean-stack@2.2.0", "", {}, "sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A=="],
@@ -451,7 +454,7 @@
 
     "fill-range": ["fill-range@7.1.1", "", { "dependencies": { "to-regex-range": "^5.0.1" } }, "sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg=="],
 
-    "filosign-crypto-utils": ["filosign-crypto-utils@0.2.10", "", {}, "sha512-arh3z7B8PKLc+NDhfaTeqBEJfdVs1rZEPGCfLfMNrG0i9WjlARJYc/vBDTM/QvknPwoDKhK/PUqeSygClxM2gw=="],
+    "filosign-crypto-utils": ["filosign-crypto-utils@0.2.12", "", {}, "sha512-Oh5i1lc/bJPAOa/Pz1fDwlY2t1jtsFELMa2nLMd8VUnjcLqevntHgv1I4eJaGMtvMS8MaO8OwSPhDFRDAX7jCA=="],
 
     "find-up": ["find-up@5.0.0", "", { "dependencies": { "locate-path": "^6.0.0", "path-exists": "^4.0.0" } }, "sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng=="],
 

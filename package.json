@@ -17,7 +17,7 @@
   "scripts": {
     "localnode": "hardhat node",
     "compile": "bun gen:interfaces; bun --bun hardhat compile",
-    "build": "bun compile; tsc",
+    "build": "bun compile; tsc -p tsconfig.build.json",
     "pretest": "bun compile",
     "gen:interfaces": "bun run scripts/generateInterfaces.ts",
     "migrate": "bun compile; bunx --bun hardhat run scripts/deploy.ts --network filecoinCalibration; bun run build"
@@ -38,7 +38,7 @@
     "@types/node": "^24.5.2",
     "chai": "^4.5.0",
     "ethers": "^6.15.0",
-    "filosign-crypto-utils": "^0.2.11",
+    "filosign-crypto-utils": "^0.2.12",
     "glob": "^11.0.3",
     "hardhat": "^2.26.3",
     "hardhat-gas-reporter": "^2.3.0",
@@ -48,7 +48,8 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "viem": "^2.37.5",
-    "multiformats": "^13.4.1"
+    "cid": "multiformats/cid",
+    "multiformats": "^13.4.1",
+    "viem": "^2.37.5"
   }
 }
