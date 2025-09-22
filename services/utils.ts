@@ -55,7 +55,7 @@ export async function signFileSignature(options: {
   signatureVisualHash: Hex;
 }) {
   const domain = {
-    name: "Filosign Key Registry",
+    name: "Filosign File Registry",
     version: "1",
     chainId: options.walletClient.chain.id,
     verifyingContract: options.contractAddress,

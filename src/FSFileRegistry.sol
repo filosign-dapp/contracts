@@ -50,7 +50,7 @@ contract FSFileRegistry is EIP712 {
         uint48 timestamp
     );
 
-    constructor() EIP712("Filosign Key Registry", "1") {
+    constructor() EIP712("Filosign File Registry", "1") {
         manager = IFSManager(msg.sender);
     }
 
