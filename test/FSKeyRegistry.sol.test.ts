@@ -1,15 +1,12 @@
-import {
-  time,
-  loadFixture,
-} from "@nomicfoundation/hardhat-toolbox-viem/network-helpers";
+import { loadFixture } from "@nomicfoundation/hardhat-toolbox-viem/network-helpers";
 import { expect } from "chai";
 import hre from "hardhat";
 import {
   encodePacked,
-  getAddress,
   keccak256,
-  parseGwei,
   publicActions,
+  sliceHex,
+  concatHex,
 } from "viem";
 import {
   generateRegisterChallenge,
@@ -91,6 +88,8 @@ describe("FSKeyRegistry", () => {
       "test"
     );
 
+    const encSeedHex = `0x${toHex(enc_material.encSeed)}` as const;
+
     const txHash = await keyRegistry.write.registerKeygenData(
       [
         {
@@ -98,7 +97,9 @@ describe("FSKeyRegistry", () => {
           salt_pin: `0x${toHex(base_material.pinSalt)}`,
           salt_auth: `0x${toHex(base_material.authSalt)}`,
           salt_wrap: `0x${toHex(base_material.wrapperSalt)}`,
-          seed: `0x${toHex(enc_material.encSeed)}`,
+          seed_head: sliceHex(encSeedHex, 0, 20),
+          seed_word: sliceHex(encSeedHex, 20, 52),
+          seed_tail: sliceHex(encSeedHex, 52, 72),
           commitment_pin,
         },
         `0x${toHex(publicKey)}`,
@@ -113,7 +114,9 @@ describe("FSKeyRegistry", () => {
       stored_salt_wrap,
       stored_salt_pin,
       stored_nonce,
-      stored_seed,
+      stored_seed_head,
+      stored_seed_word,
+      stored_seed_tail,
     ] = await keyRegistry.read.keygenData([user.account.address]);
 
     const stored = {
@@ -121,7 +124,9 @@ describe("FSKeyRegistry", () => {
       salt_wrap: toB64(stored_salt_wrap),
       salt_pin: toB64(stored_salt_pin),
       nonce: toB64(stored_nonce),
-      seed: toB64(stored_seed),
+      seed: toB64(
+        concatHex([stored_seed_head, stored_seed_word, stored_seed_tail])
+      ),
     };
 
     const regenerated_challenge = generateRegisterChallenge(
