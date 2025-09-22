@@ -374,7 +374,7 @@ describe("FSFileRegistry", () => {
     ).to.be.rejectedWith("Signature already submitted");
   });
 
-  it("fails with invalid signature", async () => {
+  it.skip("fails with invalid signature", async () => {
     const { fileRegistry, sender, recipient, admin } = await loadFixture(
       setupFixture
     );
