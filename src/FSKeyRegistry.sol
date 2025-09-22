@@ -21,6 +21,12 @@ contract FSKeyRegistry {
 
     IFSManager public immutable manager;
 
+    event KeygenDataRegistered(
+        address indexed user,
+        bytes32 publicKey,
+        uint8 version
+    );
+
     constructor() {
         manager = IFSManager(msg.sender);
     }
@@ -39,5 +45,7 @@ contract FSKeyRegistry {
         keygenDataVersion[msg.sender] = manager.version();
         keygenData[msg.sender] = data_;
         publicKeys[msg.sender] = publicKey_;
+
+        emit KeygenDataRegistered(msg.sender, publicKey_, manager.version());
     }
 }
