@@ -1,6 +1,6 @@
 export declare const definitions: {
     readonly FSManager: {
-        readonly address: "0x481cf005ac36a0f5c3f5f37aac187cfb1fbf15b5";
+        readonly address: "0x7822b03360e28b1618d5a1d5a3c9b4782dffd921";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -136,7 +136,7 @@ export declare const definitions: {
         }];
     };
     readonly FSFileRegistry: {
-        readonly address: "0xF29acC24aa40270816E13EFa61bD265c99aaB1A2";
+        readonly address: "0xb247e7240e559346FbEa119de0622AF7564547a7";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -436,7 +436,7 @@ export declare const definitions: {
         }];
     };
     readonly FSKeyRegistry: {
-        readonly address: "0xE9A3E247D5c2eAEa1dbf485e0c8C3a910fA4379f";
+        readonly address: "0xE3d5836055e038647B152BDEC0432732D20C00AA";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";

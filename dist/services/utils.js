@@ -34,7 +34,7 @@ function computeCidIdentifier(pieceCid) {
 }
 async function signFileSignature(options) {
     const domain = {
-        name: "Filosign Key Registry",
+        name: "Filosign File Registry",
         version: "1",
         chainId: options.walletClient.chain.id,
         verifyingContract: options.contractAddress,

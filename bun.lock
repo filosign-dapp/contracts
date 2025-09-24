@@ -4,9 +4,8 @@
     "": {
       "name": "contracts",
       "dependencies": {
-        "multiformats": "^13.4.1",
         "cid": "multiformats/cid",
-        "viem": "^2.37.5",
+        "multiformats": "^13.4.1",
       },
       "devDependencies": {
         "@filoz/synapse-sdk": "^0.25.1",
@@ -32,6 +31,9 @@
         "solidity-parser-antlr": "^0.4.11",
         "ts-node": "^10.9.2",
         "typescript": "^5.9.2",
+      },
+      "peerDependencies": {
+        "viem": "^2.37.5",
       },
     },
   },

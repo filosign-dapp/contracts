@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.definitions = void 0;
 exports.definitions = {
     "FSManager": {
-        "address": "0x481cf005ac36a0f5c3f5f37aac187cfb1fbf15b5",
+        "address": "0x7822b03360e28b1618d5a1d5a3c9b4782dffd921",
         "abi": [
             {
                 "inputs": [],
@@ -179,7 +179,7 @@ exports.definitions = {
         ]
     },
     "FSFileRegistry": {
-        "address": "0xF29acC24aa40270816E13EFa61bD265c99aaB1A2",
+        "address": "0xb247e7240e559346FbEa119de0622AF7564547a7",
         "abi": [
             {
                 "inputs": [],
@@ -565,7 +565,7 @@ exports.definitions = {
         ]
     },
     "FSKeyRegistry": {
-        "address": "0xE9A3E247D5c2eAEa1dbf485e0c8C3a910fA4379f",
+        "address": "0xE3d5836055e038647B152BDEC0432732D20C00AA",
         "abi": [
             {
                 "inputs": [],
