@@ -1,12 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parsePieceCid = parsePieceCid;
-exports.computeCidIdentifier = computeCidIdentifier;
-exports.signFileSignature = signFileSignature;
-const cid_1 = require("multiformats/cid");
-const viem_1 = require("viem");
-function parsePieceCid(pieceCid) {
-    const cid = cid_1.CID.parse(pieceCid);
+import { CID } from "multiformats/cid";
+import { encodePacked, keccak256, parseSignature, toHex, } from "viem";
+export function parsePieceCid(pieceCid) {
+    const cid = CID.parse(pieceCid);
     const codecNumeric = cid.code;
     const mh = cid.multihash;
     const multihashCode = mh.code;
@@ -22,17 +17,17 @@ function parsePieceCid(pieceCid) {
     return {
         multihashCode,
         codecNumeric,
-        digestPrefix: (0, viem_1.toHex)(prefix),
+        digestPrefix: toHex(prefix),
         digestTail,
         digestLength,
         rawDigest,
     };
 }
-function computeCidIdentifier(pieceCid) {
+export function computeCidIdentifier(pieceCid) {
     const { digestPrefix, digestTail } = parsePieceCid(pieceCid);
-    return (0, viem_1.keccak256)((0, viem_1.encodePacked)(["bytes32", "uint16"], [digestPrefix, digestTail]));
+    return keccak256(encodePacked(["bytes32", "uint16"], [digestPrefix, digestTail]));
 }
-async function signFileSignature(options) {
+export async function signFileSignature(options) {
     const domain = {
         name: "Filosign File Registry",
         version: "1",
@@ -58,7 +53,7 @@ async function signFileSignature(options) {
         message: value,
         primaryType: "Signature",
     });
-    const sig = (0, viem_1.parseSignature)(flatSig);
+    const sig = parseSignature(flatSig);
     return {
         v: sig.v,
         r: sig.r,

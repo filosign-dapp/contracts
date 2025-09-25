@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.contractsDeployedAtBlock = exports.definitions = void 0;
-exports.definitions = {
+export const definitions = {
     FSManager: {
         address: "0x93661d280d786dd4f2eaf3f57c2298a734ac0eee",
         abi: [
@@ -784,4 +781,4 @@ exports.definitions = {
         ],
     },
 };
-exports.contractsDeployedAtBlock = 3048550;
+export const contractsDeployedAtBlock = 3048550;
