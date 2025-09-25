@@ -3,6 +3,9 @@ import { $ } from "bun";
 
 async function main() {
   const [deployer] = await hre.viem.getWalletClients();
+  const publicClient = await hre.viem.getPublicClient();
+
+  const blockHeight = await publicClient.getBlockNumber();
 
   console.log("Deploying contracts as ", deployer.account.address);
 
@@ -38,7 +41,7 @@ async function main() {
       definitions,
       null,
       2
-    )} as const;\n`
+    )} as const;\nexport const contractsDeployedAtBlock = ${blockHeight.toString()}n;`
   );
 
   console.log("Definitions written to definitions.ts");

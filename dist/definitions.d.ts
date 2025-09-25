@@ -1,6 +1,6 @@
 export declare const definitions: {
     readonly FSManager: {
-        readonly address: "0x7822b03360e28b1618d5a1d5a3c9b4782dffd921";
+        readonly address: "0x93661d280d786dd4f2eaf3f57c2298a734ac0eee";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -136,7 +136,7 @@ export declare const definitions: {
         }];
     };
     readonly FSFileRegistry: {
-        readonly address: "0xb247e7240e559346FbEa119de0622AF7564547a7";
+        readonly address: "0xF3456327a68E05b9fE5363560b1e9caa22e40339";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -436,7 +436,7 @@ export declare const definitions: {
         }];
     };
     readonly FSKeyRegistry: {
-        readonly address: "0xE3d5836055e038647B152BDEC0432732D20C00AA";
+        readonly address: "0x8eACf47D44cF225b0C8ee71Ec5598D3Ca144d94D";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -605,3 +605,4 @@ export declare const definitions: {
         }];
     };
 };
+export declare const contractsDeployedAtBlock = 3048550;

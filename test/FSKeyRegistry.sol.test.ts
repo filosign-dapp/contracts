@@ -18,7 +18,7 @@ import {
   toB64,
   getPublicKeyFromRegenerated,
 } from "filosign-crypto-utils";
-import { describe, it } from "bun:test";
+import { describe, it } from "mocha";
 
 async function setupFixture() {
   const [deployer, user] = await hre.viem.getWalletClients();
