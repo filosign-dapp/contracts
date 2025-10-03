@@ -1,6 +1,6 @@
 export declare const definitions: {
     readonly FSManager: {
-        readonly address: "0x93661d280d786dd4f2eaf3f57c2298a734ac0eee";
+        readonly address: "0x44baf919dcf39f3417ea40a213a90169d4eb8ad4";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -136,7 +136,7 @@ export declare const definitions: {
         }];
     };
     readonly FSFileRegistry: {
-        readonly address: "0xF3456327a68E05b9fE5363560b1e9caa22e40339";
+        readonly address: "0x1aca97d94140d2fe1C4B6907294c99E3Aa9a41b5";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -436,7 +436,7 @@ export declare const definitions: {
         }];
     };
     readonly FSKeyRegistry: {
-        readonly address: "0x8eACf47D44cF225b0C8ee71Ec5598D3Ca144d94D";
+        readonly address: "0xE14B963e259EE2bF617DFd216A2e8F1D4a0C9213";
         readonly abi: readonly [{
             readonly inputs: readonly [];
             readonly stateMutability: "nonpayable";
@@ -511,9 +511,9 @@ export declare const definitions: {
                 readonly name: "seed_tail";
                 readonly type: "bytes20";
             }, {
-                readonly internalType: "bytes32";
+                readonly internalType: "bytes20";
                 readonly name: "commitment_pin";
-                readonly type: "bytes32";
+                readonly type: "bytes20";
             }];
             readonly stateMutability: "view";
             readonly type: "function";
@@ -586,9 +586,9 @@ export declare const definitions: {
                     readonly name: "seed_tail";
                     readonly type: "bytes20";
                 }, {
-                    readonly internalType: "bytes32";
+                    readonly internalType: "bytes20";
                     readonly name: "commitment_pin";
-                    readonly type: "bytes32";
+                    readonly type: "bytes20";
                 }];
                 readonly internalType: "struct FSKeyRegistry.KeygenData";
                 readonly name: "data_";
@@ -605,4 +605,4 @@ export declare const definitions: {
         }];
     };
 };
-export declare const contractsDeployedAtBlock = 3048550;
+export declare const contractsDeployedAtBlock = 3073516n;
