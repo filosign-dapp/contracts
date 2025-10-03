@@ -12,7 +12,7 @@ interface IFSKeyRegistry {
         bytes20 seed_head;
         bytes32 seed_word;
         bytes20 seed_tail;
-        bytes32 commitment_pin;
+        bytes20 commitment_pin;
     }
 
     function keygenData(address key) external view returns (KeygenData memory);
